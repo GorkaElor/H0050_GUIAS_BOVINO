@@ -1,0 +1,127 @@
+﻿#menuDeslizante
+{
+    font-size: 1.1em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, sans-serif;
+    /*position:absolute;*/
+    z-index:105;
+}
+
+*html #nav ul {
+    margin:0 0 0 -0.2em;
+}
+
+#nav
+{
+	margin:0px;
+	padding:0px;
+	z-index:105;
+}
+
+#nav ul {
+    position:absolute; 
+    left:0; 
+    display:none; 
+    margin:-0.1em 0 0 -0.1em; 
+    padding:0; 
+    list-style:none;
+    z-index:105;
+}
+  
+#nav li{
+    float:left; 
+    display:block; 
+    min-width:10em; 
+    position:relative;
+    margin:0 0.1em;
+    padding-left:0.5em;
+    z-index:105;
+}
+
+#nav ul li {
+    float:left; 
+    text-align:left;
+
+    border-top:1px solid #AAAAAA;
+    z-index:105;
+}
+
+#nav li ul
+{
+	background-color:#dadada;
+	border:1px solid #363636;
+	border-top:1px solid #dadada;
+	z-index:105;
+}
+
+#nav li ul .menu-state-default a
+{
+		color: #FFFFFF;
+}
+
+.menu-button {
+  
+  display: inline-block;
+  margin-right: 0.1em;
+  overflow: visible;
+  /*padding: 0;*/
+  position: relative;
+  /*text-align: center;*/
+  text-decoration: none !important;
+}
+
+.menu-button a
+{
+	padding:0.5em;
+	cursor: pointer;
+}
+
+.menu-state-default, .menu-widget-content .menu-state-default { background: url("../images/imgMenu/ui-bg_highlight-soft_75_363636_1x100.png") repeat-x scroll 50% 50% #363636; border: 1px solid #d3d3d3; font-weight: normal; color: #ffffff; outline: none; }
+.menu-state-default a, .menu-state-default a:link, .menu-state-default a:visited { color: #ffffff; text-decoration: none; outline: none; }
+
+.menu-state-hover, .menu-widget-content .menu-state-hover, .menu-state-focus, .menu-widget-content .menu-state-focus { border: 1px solid #999999; background: #dadada url(../images/imgMenu/ui-bg_highlight-soft_50_dadada_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #212121; outline: none; }
+.menu-state-hover a, .menu-state-hover a:hover { color: #212121; text-decoration: none; outline: none; }
+
+.menu-state-active, .menu-widget-content .menu-state-active { border: 1px solid #aaaaaa; background: #dadada url(../images/imgMenu/ui-bg_highlight-soft_50_dadada_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #212121; outline: none; }
+.menu-state-active a, .menu-state-active a:link, .menu-state-active a:visited { color: #212121; outline: none; text-decoration: none; }
+
+.menu-corner-all {
+	-moz-border-radius: 0.4em;
+	-webkit-border-radius: 0.4em;
+	border-radius: 0.4em;
+}
+
+.menu-corner-top  
+{
+	-moz-border-radius-topleft: 0.4em/*{cornerRadius}*/;
+	-webkit-border-top-left-radius: 0.4em/*{cornerRadius}*/; 
+	-moz-border-radius-topright: 0.4em/*{cornerRadius}*/; 
+	-webkit-border-top-right-radius: 0.4em/*{cornerRadius}*/; 
+	border-bottom:none;
+}
+
+.menu-corner-bottom { -moz-border-radius-bottomleft: 0.4em; -webkit-border-bottom-left-radius: 0.4em; -moz-border-radius-bottomright: 0.4em; -webkit-border-bottom-right-radius: 0.4em; }
+
+
+.menu-icon
+{
+	height:16px;
+	width:16px;
+	background-repeat: no-repeat;
+	display: block;
+	overflow: hidden;
+	text-indent: -99999px;
+	float:left;
+}
+
+.menu-icon-down
+{
+	background-image:url(../images/ui-icons_000000_256x240.png);
+	background-position:-64px -16px;
+}
+
+.menu-icon-left
+{
+	background-image:url(../images/ui-icons_ffffff_256x240.png);
+	background-position:-32px -16px;
+}
+

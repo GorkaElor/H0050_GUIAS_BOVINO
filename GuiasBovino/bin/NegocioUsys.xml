@@ -1,0 +1,57 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+NegocioUsys
+</name>
+</assembly>
+<members>
+<member name="P:IKT.NegocioUsys.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:IKT.NegocioUsys.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:IKT.NegocioUsys.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="M:IKT.NegocioUsys.Negocios.Negocio_Usys.Configuracion.GetValorCfg(System.String)">
+	<summary>
+ Obtiene el valor de configuración del usuario en la aplicación para ese cfgid.
+ </summary>
+	<param name="CfgId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.NegocioUsys.Negocios.Negocio_Usys.Configuracion.SetValorCfg(System.String,System.String)">
+	<summary>
+ Guarda el valor de configuración del usuario en la aplicación para ese cfgid.
+ </summary>
+	<param name="CfgId"></param>
+	<param name="UsuCfgVal"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.NegocioUsys.Negocios.Negocio_Usys.PassMgmt.passwordValida(System.String,System.String,System.String)">
+	<summary>
+        Comprueba si la password sigue siendo válida en términos de caducidad
+ </summary>
+	<param name="appcod">Código de la aplicación</param>
+	<param name="usucod">Código de usuario </param>
+	<param name="password">Password a comprobar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.NegocioUsys.Negocios.Negocio_Usys.PassMgmt.CAD_Encriptar(System.String,System.String,System.Boolean)">
+	<summary>
+        Encripta o desencripta cadenas de texto según el tipo de encriptación indicada
+ </summary>
+	<param name="sCadena">Cadena de texto a encriptar/desencriptar</param>
+	<param name="sTipoApp">Tipo encriptación de la aplicación, normalmente definida en App.config </param>
+	<param name="bAccion">True : encriptar , False: desencriptar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

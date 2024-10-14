@@ -1,0 +1,69 @@
+/*arbol*/
+html, body { margin:0; padding:0; }
+body, td, th, pre, code, select, option, input, textarea { font-family:Verdana; font-size:10px; }
+
+.arbol 
+{
+   overflow:auto;
+    /*_overflow:visible;   */
+	width:244px;
+	height:390px;
+	overflow-x: hidden;
+}
+
+.contArbol{
+    /*_overflow:auto;   */
+    /*overflow:auto;*/
+	min-height:75%;
+    width:250px;
+    height:390px;
+}
+
+.limpiarFloat{
+	clear:both;
+	height:0px; 
+    width:0px;
+    _display:none;
+}
+
+#treeBusPanel
+{
+    position:absolute; 
+    left:1.5em; 
+    top:1.5em; 
+    background: #fafafa url(imgArbol/fondoverde.gif);
+    display:none;
+    z-index:1;
+}		
+#botonera{
+	background: #fafafa url(imgArbol/fondoverde.gif);
+    width:99%;
+	height:5%;
+}
+#divOcultar
+{
+    background: #fafafa url(imgArbol/fondoverde.gif);
+    width:99%;
+    /*min-height:2%;*/
+    /*_height: 20px;*/
+}
+
+.arbolDiv{
+    float:left;
+	/*width:36%;*/
+	width:250px;
+	min-height:100%;
+	height:100%;
+}
+.treeDetalle
+{
+    width:707px;
+    float:left;
+    _float:none; 
+    display:block;       
+    border: none;
+    overflow:auto;
+}
+#dialog ul {
+	list-style-type:none;
+}

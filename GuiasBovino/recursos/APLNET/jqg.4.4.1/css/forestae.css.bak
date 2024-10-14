@@ -1,0 +1,323 @@
+body {
+  font-size: 12px;
+}
+
+/* Maquetación de la página */
+#Titulo {
+	border:none;
+	width:100%;
+	text-align: center;
+	height:1%;
+	background:none repeat scroll 0 0 transparent;
+	padding-bottom:5px;
+}
+
+#sTitulo, #sSubTitulo {
+	display:inline;
+}
+#Cabecera {
+	width:100%;
+	padding-top:10px;
+	border:none;
+	height:6%;
+	border-top:solid 1px blue;
+	/*border:solid 1px blue;*/
+}
+
+#Contenido {
+	height:74%;
+	width:100%;
+	text-align: center;
+	/*border:solid 1px red;*/
+}
+#Botonera {
+	width:25%;
+	height:6%;
+	text-align:right;
+	margin-top:10px;
+	bottom: 0px;
+	border:none;
+	float:right;
+/*	border:solid 1px RED;*/
+}	
+#BotoneraAcciones {
+	width:70%;
+	height:6%;
+	text-align:left;
+	margin-top:10px;
+	bottom: 0px;
+	border:none;
+	float:left;
+	/*border:solid 1px blue;*/
+}	
+#Botonera button{
+	bottom: 0px;
+}	
+#BotoneraAcciones button{
+	bottom: 0px;
+}	
+
+/* Los menús superiores */
+.menuicon-config { background-image: url(../images/btn-config.png) !important; }
+.menuicon-contactos { background-image: url(../images/btn-contactos.png) !important; }
+.menuicon-contratos { background-image: url(../images/btn-contratos.png) !important; }
+
+/* ******************************************** */
+/* ***********    Principal       ************ */
+.fondoconlogo {
+background-image: url('../images/logo.jpg');
+background-repeat: no-repeat;
+background-position: center;
+}
+.fondosinlogo {
+background-image: none;
+}
+
+/* Quitart el boton de cerrar de los Dialogs de UI */
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+
+/* ***************************************** */
+/*            FILTRO DE BUSQUEDA 						 */
+/* ***************************************** */
+
+.FiltroBusqueda {
+	border:none;
+	font-size: 11px;	
+	-moz-border-radius: 8px ;
+	-webkit-border-radius: 8px ;
+	border-radius: 8px 8px 8px 8px;
+	margin:0px 0px 0px 15px;
+	padding:0px 0px 0px 10px;
+	width:200px;
+}
+
+/* El combo de UI que es chulo... */
+.ui-selectmenu {						
+	border:none !important;
+	font-size: 11px !important;	
+	-moz-border-radius: 8px  !important;
+	-webkit-border-radius: 8px  !important;
+	border-radius: 8px 8px 8px 8px !important;
+	margin:0px 0px 0px 5px !important;
+	padding:0px 0px 0px 10px !important;
+	width:100px !important; 
+}
+
+.ui-selectmenu-menu {
+	width:100px !important; 
+	z-index: 3000 !important; 						/* Es para que se vea por encima de los dialogs..... */
+}
+	
+#litLimpiaFiltro {
+	margin-left:4px;
+	margin-top:4px;
+	cursor:pointer;
+}
+
+/* El checkbox de los filtros de busqueda */
+label.ChkCabecera {
+	margin-left:10px;
+}
+input[type=checkbox].ChkCabecera {
+  font-size: 16px;
+  position: relative;
+  border: 1px solid #262626;
+  display: inline-block;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: text-top;
+  background: -webkit-linear-gradient(
+    top, rgba(255,255,255,0.4), rgba(255,255,255,0.1)
+  );
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255, 0.1),
+                      inset 0 0 1px rgba(255,255,255, 0.4);
+  -webkit-border-radius: 3px;
+}
+
+.input[type=checkbox].ChkCabecera:active {
+  background: -webkit-linear-gradient(
+    top, rgba(255,255,255,0.05), rgba(255,255,255,0.2)
+  );
+}
+
+input[type=checkbox].ChkCabecera:checked::after {
+  position: absolute;
+  content: '';
+  left: 15%;
+  top: -10%;
+  height: 40%;
+  width: 90%;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  -webkit-box-shadow: -1px 1px 0 rgba(0,0,0,0.8);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* ******************************************** */
+/* ***********    CONFIGURACION    ************ */
+.ConfigActiva {
+	font-style:italic;
+	font-weight: bold;
+	font-size:1.1em;
+}
+
+
+/* ******************************************** */
+/* ***********    CONTRATOS    ************ */
+span.CeldaSinEstilo {
+  display:block;
+  background-image:none;
+  margin-right:-2px;
+  margin-left:-2px;
+  height:14px;
+  padding:4px;	
+}
+
+#btnNuevaFila {
+	font-size:0.7em;
+	width:auto;
+	margin-left:20px;
+}
+
+
+/* ******************************************** */
+/* ***********    FORMULARIOS    ************ */
+.clear { clear:both; }
+.frm-edicicion { margin-left:5px; padding-left:5px; }
+.frm-edicicion ul { margin:0px; padding:0px; list-style-type:none; }
+.frm-edicicion li {	float:left; }
+.frm-edicicion label {
+	width:110px;
+	text-align:right;
+	display: block;
+	float:left;
+	padding:2px;
+	margin:2px;
+	cursor:pointer;
+	color:grey;
+}
+
+.frm-edicicion th {
+	font-family: "Verdana";
+  font-size: .8em;
+	text-align:center;
+	padding:2px;
+	margin:2px;
+	color:grey;
+}
+
+.frm-edicicion input , textarea {
+	padding-left:5px;
+	font-family: "Verdana";
+  font-size: .8em;
+  border: 2px solid #eae1c0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;  
+  box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  -moz-box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  -webkit-box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  background: #fff;	
+}
+.frm-edicicion input:disabled , textarea:disabled {
+	font-weight:bold;
+	background: #C4BCBC;	
+}
+
+.frm-edicicion table {
+	border-collapse:collapse;
+	padding:0px;
+	border: 0px;
+	cellpadding: 0;
+	cellspacing: 0;
+}
+.frm-edicicion table tr, tr {
+	 padding-bottom  : 0px !important;
+}
+.frm-edicicion td input {
+	padding-left:5px;
+	font-family: "Verdana";
+  font-size: .8em;
+  border: 2px solid #eae1c0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;  
+  box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  -moz-box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  -webkit-box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  background: #fff;	
+}
+.frm-edicicion *:focus {
+  border: 2px solid #593131;
+  outline: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.frm-edicicion input:required:invalid, .frm-edicicion input:focus:invalid, .frm-edicicion textarea:required:invalid, .frm-edicicion textarea:focus:invalid{ 
+	background-image: url(../images/invalid.png); 
+	background-position: right top; 
+	background-repeat: no-repeat; 
+} 
+
+.frm-edicicion input:required:valid, .frm-edicicion textarea:required:valid { 
+	background-image: url(../images/valid.png); 
+	background-position: right top; 
+	background-repeat: no-repeat; 
+}
+
+/* ******************************************** */
+/* ***********  BOTONES DE LA APP  ************ */
+.icon-aceptar { background-image: url(../images/aceptar.png) !important; }
+.icon-cerrar { background-image: url(../images/salir.png) !important; }
+
+
+.icon-add { background-image: url(../images/btn_add.png) !important; }
+.icon-edit { background-image: url(../images/btn_edit.png) !important; }
+.icon-imprimir { background-image: url(../images/btn_imprimir.png) !important; }
+.icon-del { background-image: url(../images/btn_delete.png) !important; }
+
+.icon-contratos { background-image: url(../images/user_comment.png) !important; }
+.icon-resturafiltro { background-image: url(../images/filtrado.png) !important; }
+
+.icon-liquidar { background-image: url(../images/estado_liquidado.png) !important; }
+.icon-borrador { background-image: url(../images/estado_borrador.png) !important; }
+.icon-firma { background-image: url(../images/estado_firmado.png) !important; }
+.icon-cancelar { background-image: url(../images/estado_cancelado.png) !important; }
+.icon-factura { background-image: url(../images/btn_factura.png) !important; }
+.icon-autofactura { background-image: url(../images/btn_autofactura.png) !important; }
+.icon-rendimiento { background-image: url(../images/btn_rendimiento.png) !important; }
+
+
+/* ******************************************** */
+/* *****  Pantalla de detalle del registro   ******* */
+.det-edicicion { padding-left:5px;}
+.det-edicicion ul { margin:0px; padding:0px; list-style-type:none; }
+.det-edicicion li {	float:left; }
+.det-label {
+	width:100px;
+	text-align:right;
+	display: block;
+	float:left;
+	padding:2px;
+	margin:2px;
+	color:grey;
+	border-bottom:solid 1px gray;
+}
+.det-dato {
+	width:200px;
+	text-align:left;
+	display: block;
+	float:left;
+	padding:2px;
+	margin:2px;
+	color:black;
+}
+

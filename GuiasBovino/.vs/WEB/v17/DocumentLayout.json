@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\TEST_COMIENZOS\\GuiasBovino\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3EF65C2F-DEA4-4AED-BB27-BB1CADB0BDF8}|WEB.vbproj|c:\\test_comienzos\\guiasbovino\\vista\\js_css\\notificar_nacimiento\\notificar_nacimiento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3EF65C2F-DEA4-4AED-BB27-BB1CADB0BDF8}|WEB.vbproj|solutionrelative:vista\\js_css\\notificar_nacimiento\\notificar_nacimiento.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EF65C2F-DEA4-4AED-BB27-BB1CADB0BDF8}|WEB.vbproj|C:\\TEST_COMIENZOS\\GuiasBovino\\vista\\plantillas\\custompage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{3EF65C2F-DEA4-4AED-BB27-BB1CADB0BDF8}|WEB.vbproj|solutionrelative:vista\\plantillas\\custompage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "notificar_nacimiento.js",
+              "DocumentMoniker": "C:\\TEST_COMIENZOS\\GuiasBovino\\Vista\\JS_CSS\\notificar_nacimiento\\notificar_nacimiento.js",
+              "RelativeDocumentMoniker": "Vista\\JS_CSS\\notificar_nacimiento\\notificar_nacimiento.js",
+              "ToolTip": "C:\\TEST_COMIENZOS\\GuiasBovino\\Vista\\JS_CSS\\notificar_nacimiento\\notificar_nacimiento.js",
+              "RelativeToolTip": "Vista\\JS_CSS\\notificar_nacimiento\\notificar_nacimiento.js",
+              "ViewState": "AgIAADoCAAAAAAAAAAAAwLQCAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-14T07:33:50.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomPage.vb",
+              "DocumentMoniker": "C:\\TEST_COMIENZOS\\GuiasBovino\\Vista\\Plantillas\\CustomPage.vb",
+              "RelativeDocumentMoniker": "Vista\\Plantillas\\CustomPage.vb",
+              "ToolTip": "C:\\TEST_COMIENZOS\\GuiasBovino\\Vista\\Plantillas\\CustomPage.vb",
+              "RelativeToolTip": "Vista\\Plantillas\\CustomPage.vb",
+              "ViewState": "AgIAALUAAAAAAAAAAAASwMcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-11T11:51:45.263Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

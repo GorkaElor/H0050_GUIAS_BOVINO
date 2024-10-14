@@ -1,0 +1,98 @@
+﻿html,body,form
+{
+	background-color: #CCCC99;
+	font-family: Verdana, Arial, Helvetica;
+	height:100%;
+	overflow:hidden;
+	width:100%;
+}
+
+body
+{
+	font-size:62.5%;
+}
+
+.right
+{
+	float:right;
+	padding-top:20em;
+	width:70%;
+}
+
+.left
+{
+	float:left;
+	height:100%;
+	width:30%;
+}
+
+.login
+{
+	-moz-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	border-radius:0.5em;
+	background-color: #999966;
+	border: 1px solid  #999966;
+	clear:both;
+	color: #f2f1f0;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 2em;
+	padding:2em;
+	width:70%;
+	font-family: Verdana , Arial, Helvetica;
+	font-size:1.1em;
+}
+
+.login p
+{
+	padding:0.5em;
+}
+
+.botonera
+{
+	margin-top:1em;
+	text-align:center;
+}
+
+.loginButton
+{
+	-moz-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	border-radius:0.5em;
+	background: url("../images/imgMenu/ui-bg_highlight-soft_75_363636_1x100.png") repeat-x scroll 50% 50% #363636; border: 1px solid #d3d3d3; font-weight: normal; color: #ffffff; outline: none;
+	cursor:pointer;
+	padding:0.5em;
+	font-family: Verdana , Arial, Helvetica;
+	font-size:1.1em;
+}
+
+#valErr
+{
+	padding:0.5em;
+}	
+	
+.lblValidacion
+{
+	color: Red;
+}
+
+.titApp
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size:1.4em;
+	font-weight:600;
+	letter-spacing: 0.1em;
+	margin:1em;
+	text-align:center;	
+}
+
+.logoApp
+{
+	background: url("../images/dfa_logo_main.jpg") no-repeat center;
+	height:134px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 8em;
+	width:200px;
+}

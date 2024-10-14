@@ -1,0 +1,18 @@
+﻿http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=U0899NEB&nif=78932487Yv
+http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=BOUBJUAL&nif=72471791k
+http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=44332722S&nif=44332722S
+http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=15938438J&nif=15938438J
+GESTOR MONTE
+http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=72430280Z&nif=72430280Z
+
+http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=44160525L&nif=44160525L
+
+http://localhost:55/default.aspx?IDIOMA=0&CONUSUCOD=P2000000F&nif=P2000000F
+
+
+
+portal gipuzkoataria
+http://localhost:55/default.aspx?strIDSesion=RrbKYSopBxKlSWZHv8MdOXPhtKjHxGdoxfFlSzyt2VIxNlys88yDQILhkkZNLuHrUDoJuIiIG9TSOPtlPWrvIMYD0xNTq2QxdUTXnfQrDbvwqwnhssHQaOAX7fChFZk9WUrv6j5TpjX495rcFqiP8JhNIQRSATa2&idPortal=9
+
+
+

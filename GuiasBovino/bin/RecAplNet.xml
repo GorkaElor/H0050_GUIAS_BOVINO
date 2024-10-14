@@ -1,0 +1,2419 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+RecAplNet
+</name>
+</assembly>
+<members>
+<member name="M:IKT.RecAplNet.Daos.SQLConfig.#ctor">
+	<summary>
+ Por defecto carga el SQLConfig con la ruta de SqlConfigPath
+ </summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.SQLConfig.#ctor(System.String)">
+	<summary>
+ Carga el sqlConfig con la ruta del appsettings pasada por parámetro
+ </summary>
+	<param name="settingsPath"></param>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.Daos.SQLConfig">
+	<summary>
+ Clase que cosntruye SQLs parametrizadas en un fichero o n ficheros de configuración SQL.Config
+ Para ello es necesario configurar el fichero App.Config con las rutas de los ficheros. Como mínimo tiene que establecerse
+ la variable SqlConfigPath. El fichero divide las SQLs en distinttos grupos.Cada SQL es identificada por su nombre 
+ dentro de cada grupo.  
+ </summary>
+	<example> Ejemplo de configuración del fichero APP.Config y del fichero SqlConfig
+ <code>
+			<![CDATA[
+ <appSettings>
+ <add key="PRINCIPAL" value="ORA10GDE"/>
+ <add key="entReports" value="1"/>
+ <add key="SqlConfigPath" value ="E:\webs\Prototipos\DFAAYUDAS\DFAICM\WEB\SQL.CONFIG"/>
+ <add key="SqlConfigPath1" value ="E:\webs\Prototipos\DFAAYUDAS\DFAICM\WEB\SQL1.CONFIG"/>
+ </appSettings>
+ ]]>
+		</code>
+	</example>
+	<example>
+		<code>
+			<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<SQLCONFIG>
+  <SQLGRUPO nombre="DFAICM_AC">
+    <SQL nombre="RESUELVE_01">
+      <SQLSTRING >
+        SELECT tbicmctrladmin.campana, tbicmctrladmin.solnumsu, tbicmctrladmin.cacod, tbicmctrladmin.icmcafecha,
+       ......
+      </SQLSTRING>
+      <SQLPARAMS>
+        <PARAM nombre="@CAMPANA" valor="" tipo="system.int16"></PARAM>
+        <PARAM nombre="@SOLNUMSU" valor="" tipo="system.string"></PARAM>
+      </SQLPARAMS>
+    </SQL>
+    <SQL nombre="RESUELVE_02">
+      <SQLSTRING >
+        SELECT tbicmctrladmin.campana, tbicmctrladmin.solnumsu, tbicmctrladmin.cacod, tbicmctrladmin.icmcafecha,
+        t......
+      </SQLSTRING>
+      <SQLPARAMS>
+        <PARAM nombre="@CAMPANA" valor="" tipo="system.int16"></PARAM>
+        <PARAM nombre="@SOLNUMSU" valor="" tipo="system.string"></PARAM>
+      </SQLPARAMS>
+    </SQL>
+    <SQL nombre="RESUELVE_03">
+      <SQLSTRING >
+        SELECT PERDEPPTO FROM DFAICM.TMPERDEP WHERE @PERSONAS &gt;= PDVALINI  AND @PERSONAS &lt;= PDVALFIN
+      </SQLSTRING>
+      <SQLPARAMS>
+        <PARAM nombre="@PERSONAS" valor="" tipo="system.int16"></PARAM>
+      </SQLPARAMS>
+    </SQL>    
+  </SQLGRUPO>
+</SQLCONFIG>
+ ]]>
+		</code>
+	</example>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.Entidades.ColEntidadConfig.NombreColeccion">
+	<summary>
+ Nombre de la propiedad de la entidad donde se van a guardar las entidades hijas
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.Entidades.ColEntidadConfig.Nombre">
+	<summary>
+ Nombre completo, con namespace, de la entidad
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.Entidades.ColEntidadConfig.Parametros">
+	<summary>
+ Aquí hay dos opciones, o se le pasan los atributos de la entidad padre que forman parte de la clave de la hija
+ o se le pasa un SQLWHERE con els siguiente formato, New sqlWhere("CAMPOBASEDATOS","nombreAtributoclasepadre")
+ , esto nos fiultra la coleccion por ese atributo, o bien se le puede pasar un New SQLWhere("CAMPO BD","valor")
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.hdata">
+	<summary>
+ Función que devuelve un hashtable con el par (nombreAtributo,valor)
+ </summary>
+	<returns>hashtable</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.verificado">
+	<summary>
+ Función que mira si los atributos establecidos como requeridos en el entidad config se han rellenado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.identificado">
+	<summary>
+ Verifica si los atributos declarados en ItemsKey se han rellenado
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.OnSerialized(System.Runtime.Serialization.StreamingContext)">
+	<summary>
+ Evento que se ejecuta al serializar una entidad
+ </summary>
+	<param name="context"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.serializaAtributosXML">
+	<summary>
+ Método que establece pone en session los atributos de la entidad que se ha serializado
+ </summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.nodesToAttributes(System.String)">
+	<summary>
+ Aplica una hoja de estilos que pasa los nodos a atributos segun los atributos de la entidad que se ha serializado 
+ y que se han establecido en session
+ </summary>
+	<param name="out">xml que resulta de la salida de la serializacion</param>
+	<returns>el xmlstring transformado</returns>
+	<remarks>Se ejecuta despues de la seraializacion</remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.AttributesToNodes(System.String)">
+	<summary>
+ Transformación necesaria para pasar los atributos a nodos antes de desarializar con DtaContract
+ </summary>
+	<param name="input">xmlstring</param>
+	<returns>xmlstring transformado</returns>
+	<remarks>Se ejecuta antes de la deserializacion</remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.serializarXML">
+	<summary>
+ Serializa una entidad a XML utilizando la tecnología DataContract
+ Previamente habrá que declarar los tags de DataContract y DataMember en caso de que sea necesario, 
+ Es importante saber que se serializará en orden, y que aquellas propiedades no serializables hay que declararlas como IgnoreDataMember
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.serializarXMLDoc">
+	<summary>
+ Serializa una entidad a un documento XML utilizando la tecnología DataContract
+ Previamente habrá que declarar los tags de DataContract y DataMember en caso de que sea necesario, 
+ Es importante saber que se serializará en orden, y que aquellas propiedades no serializables hay que declararlas como IgnoreDataMember
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.serializarJSON">
+	<summary>
+ Serializa una entidad a JSON utilizando la tecnología DataContract
+ Previamente habrá que declarar los tags de DataContract y DataMember en caso de que sea necesario, 
+ Es importante saber que se serializará en orden, y que aquellas propiedades no serializables hay que declararlas como IgnoreDataMember
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.deserializarJSON(System.String)">
+	<summary>
+ Rellena una entidad con los datos del xmlstring pasado como parámetro,
+ Previamente habrá que declarar los tags de DataContract y DataMember en caso de que sea necesario
+ Es importante saber que se serializará en orden, y que aquellas propiedades no serializables hay que declararlas como IgnoreDataMember
+ </summary>
+	<param name="jsonStr"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.Entidad.desSerializarXML(System.String)">
+	<summary>
+ Rellena una entidad con los datos del xmlstring pasado como parámetro,
+ Previamente habrá que declarar los tags de DataContract y DataMember en caso de que sea necesario
+ Es importante saber que se serializará en orden, y que aquellas propiedades no serializables hay que declararlas como IgnoreDataMember
+ </summary>
+	<param name="xml"></param>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.Entidades.Entidad">
+	<summary>
+ Las entidades supone el elemento central para contener la información del dominio de la información.
+ Para que una clase pueda ser mantenida por la arquitecura net IKT debe ser de este tipo.
+ Lo fundamental para esta clase es implementar el método inicializar, y completar las propiedades y atributos
+ de la entidad, para lo cual existe la herramienta JAZZ. los elementos DataContract se utilizan para la serialización XML.
+ Solo se serializaran las propiedades estableciadas con DataMember
+ </summary>
+	<example>
+		<code>
+ Imports IKT.RecAplNet.Entidades
+ Namespace Entidades
+   &gt;DataContract()&lt;&lt;/DataContract&gt; _
+    Public Class T_REPRESENTANTES
+        Inherits Entidad
+        Implements IEntidad
+        Private _rp_clave As New AtributoEntidad("rp_clave", GetType(System.Int64), id:=1, getnull:=0, setnull:=0, requerido:=True)
+        Private _rp_clavetransp As New AtributoEntidad("rp_clavetransp", GetType(System.Int64), id:=2, getnull:=0, setnull:=0)
+        Private _rp_tr_codigosirentra As New AtributoEntidad("rp_tr_codigosirentra", GetType(System.String), id:=3, getnull:=0, setnull:=0, Tamaño:=15)
+        Private _rp_nif As New AtributoEntidad("rp_nif", GetType(System.String), id:=4, getnull:=0, setnull:=0, Tamaño:=10)
+        Private _rp_pasaporte As New AtributoEntidad("rp_pasaporte", GetType(System.String), id:=5, getnull:=0, setnull:=0, Tamaño:=20)
+        Private _irp_cod_pais As New AtributoEntidad("irp_cod_pais", GetType(System.String), id:=6, getnull:=0, setnull:=0, Tamaño:=3)
+        Private _rp_pais As New AtributoEntidad("rp_pais", GetType(System.String), id:=7, getnull:=0, setnull:=0, Tamaño:=100)
+        Private _rp_nombre As New AtributoEntidad("rp_nombre", GetType(System.String), id:=8, getnull:=0, setnull:=0, Tamaño:=100)
+        Private _rp_apellidos As New AtributoEntidad("rp_apellidos", GetType(System.String), id:=9, getnull:=0, setnull:=0, Tamaño:=100)
+        Private _rp_fechaalta As New AtributoEntidad("rp_fechaalta", GetType(System.DateTime), id:=10, getnull:=0, setnull:=0)
+        Private _rp_fechabaja As New AtributoEntidad("rp_fechabaja", GetType(System.DateTime), id:=11, getnull:=0, setnull:=0)
+        Private _gr_fec_act As New AtributoEntidad("gr_fec_act", GetType(System.DateTime), id:=12, getnull:=0, setnull:=0)
+        Private _gr_tip_act As New AtributoEntidad("gr_tip_act", GetType(System.String), id:=13, getnull:=0, setnull:=0, Tamaño:=2)
+        Private _icod_ope As New AtributoEntidad("icod_ope", GetType(System.String), id:=14, getnull:=0, setnull:=0, Tamaño:=9)
+        &gt;DataMember()&lt;&lt;/DataMember&gt; _
+        Public Property rp_clave() As System.Int64
+            Get
+                Return _RP_CLAVE.valor
+            End Get
+            Set(ByVal value As System.Int64)
+                _RP_CLAVE.valor = value
+            End Set
+        End Property
+        &gt;DataMember()&lt;&lt;/DataMember&gt; _
+        Public Property rp_clavetransp() As System.Int64
+            Get
+                Return _RP_CLAVETRANSP.valor
+            End Get
+            Set(ByVal value As System.Int64)
+                _RP_CLAVETRANSP.valor = value
+            End Set
+        End Property
+       &gt;DataMember()&lt;&lt;/DataMember&gt; 
+        Public Property rp_tr_codigosirentra() As System.String
+            Get
+                Return _RP_TR_CODIGOSIRENTRA.valor
+            End Get
+            Set(ByVal value As System.String)
+                _RP_TR_CODIGOSIRENTRA.valor = value
+            End Set
+        End Property
+       &gt;DataMember()&lt;&lt;/DataMember&gt; 
+        Public Property rp_nif() As System.String
+            Get
+                Return _RP_NIF.valor
+            End Get
+            Set(ByVal value As System.String)
+                _RP_NIF.valor = value
+            End Set
+        End Property
+        &gt;DataMember()&lt;&lt;/DataMember&gt; 
+        Public Property rp_pasaporte() As System.String
+            Get
+                Return _RP_PASAPORTE.valor
+            End Get
+            Set(ByVal value As System.String)
+                _RP_PASAPORTE.valor = value
+            End Set
+        End Property
+        &gt;DataMember()&lt;&lt;/DataMember&gt; 
+        Public Property irp_cod_pais() As System.String
+            Get
+                Return _IRP_COD_PAIS.valor
+            End Get
+            Set(ByVal value As System.String)
+                _IRP_COD_PAIS.valor = value
+            End Set
+        End Property
+        &gt;DataMember()&lt;&lt;/DataMember&gt; 
+        Public Property rp_pais() As System.String
+            Get
+                Return _RP_PAIS.valor
+            End Get
+            Set(ByVal value As System.String)
+                _RP_PAIS.valor = value
+            End Set
+        End Property
+        &gt;DataMember()&lt;&lt;/DataMember&gt; 
+        Public Property rp_nombre() As System.String
+            Get
+                Return _RP_NOMBRE.valor
+            End Get
+            Set(ByVal value As System.String)
+                _RP_NOMBRE.valor = value
+            End Set
+        End Property
+        Public Property rp_apellidos() As System.String
+            Get
+                Return _RP_APELLIDOS.valor
+            End Get
+            Set(ByVal value As System.String)
+                _RP_APELLIDOS.valor = value
+            End Set
+        End Property
+        Public Property rp_fechaalta() As Nullable(Of DateTime)
+            Get
+                Return _RP_FECHAALTA.valor
+            End Get
+            Set(ByVal value As Nullable(Of DateTime))
+                _RP_FECHAALTA.valor = value
+            End Set
+        End Property
+        Public Property rp_fechabaja() As Nullable(Of DateTime)
+            Get
+                Return _RP_FECHABAJA.valor
+            End Get
+            Set(ByVal value As Nullable(Of DateTime))
+                _RP_FECHABAJA.valor = value
+            End Set
+        End Property
+ 
+        Public Property gr_fec_act() As Nullable(Of DateTime)
+            Get
+                Return _GR_FEC_ACT.valor
+            End Get
+            Set(ByVal value As Nullable(Of DateTime))
+                _GR_FEC_ACT.valor = value
+            End Set
+        End Property
+        Public Property gr_tip_act() As System.String
+            Get
+                Return _GR_TIP_ACT.valor
+            End Get
+            Set(ByVal value As System.String)
+                _GR_TIP_ACT.valor = value
+            End Set
+        End Property
+        Public Property icod_ope() As System.String
+            Get
+                Return _ICOD_OPE.valor
+            End Get
+            Set(ByVal value As System.String)
+                _ICOD_OPE.valor = value
+            End Set
+        End Property
+        Public Sub New()
+            Inicializa()
+        End Sub
+        Public Sub New(ByVal RP_CLAVE As System.Int64)
+            Inicializa()
+            _RP_CLAVE.Valor = RP_CLAVE
+        End Sub
+        Public Sub New(ByVal ParamArray lista As Object())
+            Inicializa()
+            _RP_CLAVE.Valor = lista(0)
+        End Sub
+        Public Overloads Overrides Sub Inicializa()
+            'Define nombre de la clase.
+            EntidadConfig.Nombre = MyClass.ToString
+            'Define array de items.
+            EntidadConfig.Items = New String() {"rp_clave", "rp_clavetransp", "rp_tr_codigosirentra", "rp_nif", "rp_pasaporte", "irp_cod_pais", "rp_pais", "rp_nombre", "rp_apellidos", "rp_fechaalta", "rp_fechabaja", "gr_fec_act", "gr_tip_act", "icod_ope", "conusucod", "conmodfec"}
+            'Define array de items extendidos.
+            EntidadConfig.ItemsExtend = New String() {}
+            'Define array de keys.
+            EntidadConfig.ItemsKey = New String() {"rp_clave"}
+            'Define array de valores out.
+            EntidadConfig.ItemsOut = New String() {"rp_clave", "rp_pais"}
+            'Cargar atributos.
+            With EntidadConfig.Atributos
+                .add("rp_clave", _rp_clave)
+                .add("rp_clavetransp", _rp_clavetransp)
+                .add("rp_tr_codigosirentra", _rp_tr_codigosirentra)
+                .add("rp_nif", _rp_nif)
+                .add("rp_pasaporte", _rp_pasaporte)
+                .add("irp_cod_pais", _irp_cod_pais)
+                .add("rp_pais", _rp_pais)
+                .add("rp_nombre", _rp_nombre)
+                .add("rp_apellidos", _rp_apellidos)
+                .add("rp_fechaalta", _rp_fechaalta)
+                .add("rp_fechabaja", _rp_fechabaja)
+                .add("gr_fec_act", _gr_fec_act)
+                .add("gr_tip_act", _gr_tip_act)
+                .add("icod_ope", _icod_ope)
+                .add("conusucod", _conusucod)
+                .add("conmodfec", _conmodfec)
+            End With
+        End Sub
+    End Class
+End Namespace
+ </code>
+	</example>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.Entidades.AtributoEntidad.valor">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQNube.tags">
+	<summary>
+ Propiedades de la clase JQNube.
+ tags() --&gt; es la colección de elementos nube
+ tag --&gt; el nombre campo del datatable que se quire mostrar como tag
+ freq --&gt; el nombre del campo del datatable que representará la frequencia
+ </summary>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQNube.getData(System.Data.DataTable@,System.Data.DataRow@,System.String@)">
+	<summary>
+ Busca en el datatable el valor campo correspondiente bien al tag o al freq
+ </summary>
+	<param name="dt"></param>
+	<param name="oROW"></param>
+	<param name="tipo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQNube.llenar(System.Data.DataTable)">
+	<summary>
+ rellena la colección de tags 
+ </summary>
+	<param name="dt"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQNube.#ctor">
+	<summary>
+ Por defecto se establece el idioma seleccionado en el login
+ </summary>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQNube">
+	<summary>
+ Esta clase construye el objeto JQNube, es utilizado para la representación 
+ de Frecuencias de diferentes tags en una nube. Este objeto será devuelto mediante
+ un WebMethod con respuesta JSON
+ </summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.DAO_DAL.GetInstancia">
+	<summary>
+ Función que retorna la instancia de la clase DAO_DAL, implementando el patrón Singletone
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.DAO_DAL.ProcesaSumSql(IKT.RecAplNet.General.ConexionIKT,System.String)">
+	<summary>
+ SQL de sumatorio u otra función de agregado
+ </summary>
+	<param name="Cn"></param>
+	<param name="sSQL"></param>
+	<returns>el resultado de la función de agregado</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.DAO_DAL.ProcesaSQL(IKT.RecAplNet.General.ConexionIKT,System.String)">
+	<summary>
+ Ejecutar una SQL de mantenimiento,insert,update,delete.
+ </summary>
+	<param name="Cn"></param>
+	<param name="sSQL"></param>
+	<returns>0 si no es correcto o el número de registros afectados</returns>
+	<example>
+		<code>
+ Dim o As Decimal = DAO_DAL.GetInstancia.ProcesaSQL(con, UpdateToString(EntidadAGuardar))
+ Return If(o = 0, False, True)
+ </code>
+	</example>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.DAO_DAL.ProcesaCountSql(IKT.RecAplNet.General.ConexionIKT,System.String)">
+	<summary>
+ Función que retorna el número de registros
+ </summary>
+	<param name="Cn"></param>
+	<param name="sSQL"></param>
+	<returns></returns>
+	<remarks>el </remarks>
+</member><member name="M:IKT.RecAplNet.Daos.DAO_DAL.ProcesaSQLOUT(IKT.RecAplNet.General.ConexionIKT,System.Data.Common.DbCommand)">
+	<summary>
+ Sql de insert con parámetros de salida
+ </summary>
+	<param name="Cn"></param>
+	<param name="mComando"></param>
+	<returns>un Hashtable con los nombres de los items de salida y su valor.</returns>
+	<example>
+		<code>
+  Dim ht As Hashtable = DAO_DAL.GetInstancia.ProcesaSQLOUT(con, InsertToStringOut(EntidadAAgregar))
+ </code>
+	</example>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.Daos.DAO_DAL">
+	<summary>
+ Clase que se utiliza para lanzar SQLs y DDLs(Inserts,Updates,Deletes) contra la base de datos,
+ a partir de una consexión. 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.foreign.#ctor(System.String,System.String[])">
+	<summary>
+ Se pasa los atributos de la entidad que forman parte de la foreing y la tabla externa.
+ </summary>
+	<param name="tablaforeign">Tabla externa</param>
+	<param name="itemsforeign">Campos parate de la forign</param>
+	<remarks>Asume que los caampos de la tabla externa y los de la tabla de la entidad son iguales</remarks>
+	<example>
+		<code>
+  New foreign("DFAICM.TBSOLCOMPROGEN",New String() {"campana", "comprocod"})
+ </code>
+	</example>
+</member><member name="M:IKT.RecAplNet.Daos.foreign.#ctor(System.String,System.String[],System.String[])">
+	<summary>
+ Se Se pasa los atributos de la entidad que forman parte de la foreing y la tabla externa y los campos de la tabla externa
+ </summary>
+	<param name="tablaforeign">Tabla externa</param>
+	<param name="itemsforeign">Campos parate de la forign</param>
+	<param name="itemsforeignExt">Campos en la tabla Externa</param>
+	<remarks>Construye la join con el nombre de los campos de la clave externa y los campos pasados por parámetro</remarks>
+	<example>
+		<code>
+ New foreign("TC_MTCATEGORIA", New String() {"co_categoria"}, New String() {"ID"})
+ </code>
+	</example>
+</member><member name="T:IKT.RecAplNet.Daos.foreign">
+	<summary>
+ Esta clase es utilizada para declarar las claves externas que se utilizará posteriormente
+ para comprobar la integridad referencial de de las entidades.
+ </summary>
+	<remarks>Sirve tanto para las claves externas como para las claves hijos. Es decir tablas para las 
+ cuales el registro de entidad actúa como padre. </remarks>
+</member><member name="M:IKT.RecAplNet.General.GeneralIkt.MD5Converter(System.String)">
+	<summary>
+ Convierte a formateo md5 una cadena pasada por parámetro y que previamente
+ se convierte a una ristra de bites en unicod u UTF-16
+ </summary>
+	<param name="source"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.FuncNumerica.RoundIKT(System.Double,System.Int32)">
+	<summary>
+ redondea el valor al número de decimales según el tipo de redondeo común
+ Si el siguiente decimal es mayor o igual que 5, el anterior se incrementa en una unidad
+ </summary>
+	<param name="Valor"></param>
+	<param name="iNumDecimales"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.FuncNumerica.RoundIKT(System.Decimal,System.Int32)">
+	<summary>
+ redondea el valor al número de decimales según el tipo de redondeo común
+ Si el siguiente decimal es mayor o igual que 5, el anterior se incrementa en una unidad
+ </summary>
+	<param name="Valor"></param>
+	<param name="iNumDecimales"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.FuncNumerica.RoundIKT(System.Double,System.Int32,System.MidpointRounding)">
+	<summary>
+ redondea el valor al número de decimales según el tipo de redondeo (común o internacional)
+ </summary>
+	<param name="Valor"></param>
+	<param name="iNumDecimales"></param>
+	<param name="iTipoRedondedo"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.FuncNumerica.RoundIKT(System.Decimal,System.Int32,System.MidpointRounding)">
+	<summary>
+ redondea el valor al número de decimales según el tipo de redondeo (común o internacional)
+ </summary>
+	<param name="Valor"></param>
+	<param name="iNumDecimales"></param>
+	<param name="iTipoRedondedo"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQTreeDataItem.#ctor">
+	<summary>
+ Contructor.
+ </summary>
+</member><member name="F:IKT.RecAplNet.VistaWeb.JQEdiResponse._formatos">
+	<summary>
+ Hashtable con los formatos rellenos con el par columna,Formato
+ </summary>
+	<remarks>Los formatos bienen definidas por las constantes de la clase JQFormatos</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.esAccesible(System.String)">
+	<summary>
+ Comprueba la accesibilidad al webMethod es necesaria la sentencia Response.Write(PageIKT.Inicializar(ViewState))
+ en el Page_Load para comprobar luego la accesibilidad
+ </summary>
+	<param name="hash"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.Inicializar(System.Web.UI.StateBag@)">
+	<summary>
+ Inicializa el view state con el filtro de acceso
+ </summary>
+	<param name="ViewState"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getGridEntidad(System.Int32,System.Int32,System.String,System.String,System.String,System.Collections.Hashtable,IKT.RecAplNet.Entidades.iEntidad,IKT.RecAplNet.VistaWeb.JQGridJsonResponse@,System.Object[])">
+	<summary>
+ Obtiene un objeto grid que se pintará con el plugin de JQGrid
+ </summary>
+	<param name="pPageSize"></param>
+	<param name="pCurrentPage"></param>
+	<param name="pSortColumn"></param>
+	<param name="pSortOrder"></param>
+	<param name="hash"></param>
+	<param name="where"></param>
+	<param name="entidad"></param>
+	<param name="JQG"></param>
+	<param name="SQLElements"></param>
+	<returns>JQGridJsonResponse</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getEdicionEntidad(System.String,System.String,IKT.RecAplNet.Entidades.iEntidad@,System.Type,System.Collections.Hashtable)">
+	<summary>
+ Obtiene los datos de una fila de un grid editable cuando está en modo edición.
+ </summary>
+	<param name="ID"></param>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="jqeType"></param>
+	<param name="htFormatos">Coleccion de campos y sus formatos, según JQFormatos</param>
+	<returns>IEntidad</returns>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getEdicionEntidadForm(System.String,IKT.RecAplNet.Entidades.iEntidad@,System.Object[])">
+	<summary>
+ Obtiene los datos de una entidad para un formulario de edición
+ </summary>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="IDs"></param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getEdicionEntidadFormFormatos(System.String,System.Collections.Hashtable,IKT.RecAplNet.Entidades.iEntidad@,System.Object[])">
+	<summary>
+ Obtiene los datos de una entidad para un formulario de edición, siguiendo los formatos proporcionados
+ </summary>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="formatos"></param>
+	<param name="IDs"></param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getEdicionCombo(System.String,System.String,System.String,System.String,System.String,IKT.RecAplNet.Entidades.iEntidad@,System.Boolean,System.Object[])">
+	<summary>
+ Obtiene el conjunto de resultados necesarios para un combo.
+ </summary>
+	<param name="hash"></param>
+	<param name="Campodes">Campo descripción en la Base de Datos</param>
+	<param name="campoVal">Campo valor en la Base de Datos</param>
+	<param name="inputDes">ID del input de la caja de descripción del formulario</param>
+	<param name="InputVal">ID del input de la caja de valor del formulario</param>
+	<param name="entidad"></param>
+	<param name="MultiIdioma">Si hay que concatenarle o no el sufijo a las descripciones. Se recomienda pasarlo desde Fuera </param>
+	<param name="SQLElements">Filtros que se van a aplicar</param>
+	<returns>JQComboExt</returns>
+	<example>
+		<code>
+			<![CDATA[
+  PageIKT.getEdicionCombo(SessionIKT.getValor("viewhash"), "TIPOCONTROLDES & PageIKT.getSufijo()", "TIPOCONTROLCOD", "txtTIPOCONTROLDES" & PageIKT.getSufijo(), "txtTIPOCONTROLCOD", New TMTIPOCONTROL, False)
+ ]]>
+		</code>
+	</example>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getEdicionComboExtra(System.String,System.String,System.String,System.String,System.String,IKT.RecAplNet.Entidades.iEntidad@,System.Boolean,System.Collections.ArrayList,System.Object[])">
+	<summary>
+ Obtiene el conjunto de resultados necesarios para un combo.
+ </summary>
+	<param name="hash"></param>
+	<param name="Campodes">Campo descripción en la Base de Datos</param>
+	<param name="campoVal">Campo valor en la Base de Datos</param>
+	<param name="inputDes">ID del input de la caja de descripción del formulario</param>
+	<param name="InputVal">ID del input de la caja de valor del formulario</param>
+	<param name="entidad"></param>
+	<param name="MultiIdioma">Si hay que concatenarle o no el sufijo a las descripciones. Se recomienda pasarlo desde Fuera </param>
+	<param name="dataExtra">Colección de nombres de campos que se desean devolver como extras.</param>
+	<param name="SQLElements">Filtros que se van a aplicar</param>
+	<returns>JQComboExt</returns>
+	<example>
+		<code>
+			<![CDATA[
+  PageIKT.getEdicionCombo(SessionIKT.getValor("viewhash"), "TIPOCONTROLDES & PageIKT.getSufijo()", "TIPOCONTROLCOD", "txtTIPOCONTROLDES" & PageIKT.getSufijo(), "txtTIPOCONTROLCOD", New TMTIPOCONTROL, False)
+ ]]>
+		</code>
+	</example>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getComboLista(System.String,System.String,System.String,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+	<summary>
+ Obtiene el conjunto de resultados necesarios para un combo cuyo origen de datos es una lista tipo List(Of KeyValuePair(Of String, String)).
+ </summary>
+	<param name="hash"></param>
+	<param name="inputDes">ID del input de la caja de descripción del formulario</param>
+	<param name="InputVal">ID del input de la caja de valor del formulario</param>
+	<param name="lista">Lista de tipo List(Of KeyValuePair(Of String, String)), es el origen de datos.</param>
+	<returns>JQComboExt</returns>
+	<example>
+		<code>
+			<![CDATA[
+  PageIKT.getEdicionCombo(SessionIKT.getValor("viewhash"), "TIPOCONTROLDES & PageIKT.getSufijo()", "TIPOCONTROLCOD", "txtTIPOCONTROLDES" & PageIKT.getSufijo(), "txtTIPOCONTROLCOD", New TMTIPOCONTROL, False)
+ ]]>
+		</code>
+	</example>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.deleteEntidad(System.String,System.String,IKT.RecAplNet.Entidades.iEntidad@,System.Type)">
+	<summary>
+ Borrar una entidad
+ </summary>
+	<param name="ID"></param>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="jqeType">tipo de la entidad</param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.deleteEntidadForm(System.Collections.Hashtable,System.String,IKT.RecAplNet.Entidades.Entidad@,System.Object[])">
+	<summary>
+ Borrar una entidad de formulario
+ </summary>
+	<param name="data"></param>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="ID"></param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Mirar en el ejemplo expuesto en la página la descripción de la clase</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.saveEntidadForm(System.Collections.Hashtable,System.String,IKT.RecAplNet.Entidades.Entidad@,System.Object[])">
+	<summary>
+ Guargar o agregar una entidad.Es necesario que el ID contenga el string "new para dar de alta".
+ </summary>
+	<param name="data"></param>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="ID"></param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Es necesario que el ID contenga el string "new para dar de alta".
+ Mirar en el ejemplo expuesto en la página la descripción de la clase 
+ </remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.saveEntidadFormAgregar(System.Collections.Hashtable,System.String,IKT.RecAplNet.Entidades.Entidad@,System.Object[])">
+	<summary>
+ Guargar o agregarObtener una entidad.Es necesario que el ID contenga el string "new para dar de alta".
+ </summary>
+	<param name="data"></param>
+	<param name="hash"></param>
+	<param name="entidad"></param>
+	<param name="ID"></param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Nótese que en esta coasión el método que se utiliza es agregarObtener, con lo que es necesario
+ para las entidades con campos Out</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.saveEntidad(System.Collections.Hashtable,System.String,System.String,IKT.RecAplNet.Entidades.Entidad@,System.Type,System.Boolean)">
+	<summary>
+ Guarda un registro de un grid.Es necesario que el ID contenga el string "new para dar de alta".
+ </summary>
+	<param name="data"></param>
+	<param name="hash"></param>
+	<param name="ID"></param>
+	<param name="entidad"></param>
+	<param name="jqeType"></param>
+	<param name="ageregarYObtener"></param>
+	<returns>JQEdiResponse</returns>
+	<remarks>Nótese que en esta coasión el método que utiliza el parámetro ageregarYObtener que por defecto es false para saber si tiene que utilizar el método AgregarObtener, con lo que es necesario
+ para las entidades con campos Out que este párametro se estableca a true</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getProcesosGeneral(System.String)">
+	<summary>
+ Obtiene los procesos
+ </summary>
+	<param name="hash"></param>
+	<returns></returns>
+	<remarks>Hashtable</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getLiteralesGeneral(System.String,System.String)">
+	<summary>
+ Método para obtner los literales
+ </summary>
+	<param name="grucod"></param>
+	<param name="hash"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getLiteralesGeneral(System.String,System.String,System.String)">
+	<summary>
+ Método para obtener literales de un grupo en una aplicación
+ </summary>
+	<param name="grucod"></param>
+	<param name="AppCod"></param>
+	<param name="hash"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.AddFunBD(IKT.RecAplNet.VistaWeb.JQEdiResponse,System.String,System.String,System.String,IKT.RecAplNet.Entidades.iEntidad,System.Object[])">
+	<summary>
+ Actualiza la función de agregado, para un grid que utilice en el pie funciones de agregado
+ </summary>
+	<param name="ret"></param>
+	<param name="funSQL">avg,sum,cout...</param>
+	<param name="campoVista">campo del formulario o del grid</param>
+	<param name="campoBD"></param>
+	<param name="Ent">IEntidad sobre la que aplicar la función</param>
+	<param name="SQLElements">Filtros SQL</param>
+	<returns>JQEdiResponse</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.AddFunBD(IKT.RecAplNet.VistaWeb.JQEdiResponse,System.String,System.String,IKT.RecAplNet.Entidades.iEntidad,System.Object[])">
+	<summary>
+ Igual que la anterior solo que ahora se pasa la función a computar con el campo
+ </summary>
+	<param name="ret"></param>
+	<param name="funCompute">función a computar con el campo ejem: sum(avg(sal))</param>
+	<param name="campoVista">campo del formulario o del grid</param>
+	<param name="Ent">IEntidad sobre la que aplicar la función</param>
+	<param name="SQLElements">Filtros SQL</param>
+	<returns>JQEdiResponse</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getTreeEntidad(System.String,IKT.RecAplNet.VistaWeb.JQTreeJsonResponse,System.Data.DataTable)">
+	<summary>
+ Para un nivel concreto, rellena la colección data del objeto JQTreeJSONResponse jqt con los datos del datatable y según la configuración del mismo objeto. 
+ Este objeto es utilizado por el widget jquery.ikt.tree.v2.js para representar los datos en forma jerárquica (árbol).
+ </summary>
+	<param name="level"></param>
+	<param name="jqt">función a computar con el campo ejem: sum(avg(sal))</param>
+	<param name="dt">campo del formulario o del grid</param>
+	<returns>JQTreeJSONREsponse</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.PageIKT.getJQFlot(IKT.RecAplNet.VistaWeb.JQFlotResponse,System.Data.DataTable)">
+	<summary>
+ Rellena el objeto JQFlotResponse jqf con los datos del datatable proporcionado.
+ Este objeto es utilizado por el widget jquery.flot.js para representar los datos en forma gráfica.
+ </summary>
+	<param name="jqf">Objeto que se completará con los datos del datatable dt</param>
+	<param name="dt">Datatable con los datos que dan origen al gráfico</param>
+	<returns>JQFlotResponse</returns>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.VistaWeb.PageIKT">
+	<summary>
+ Clase que se utiliza para simplificar el uso de los objetos de vista, fundamentalmente para los webMethods
+ de las páginas aspx. El parámetro de filtro, hash,Se comprueba en todos los métodos.
+ </summary>
+	<example>Código de una página aspx que hace uso de este método.
+ <code>
+			<![CDATA[
+Partial Public Class Vista_GridActas_Control
+    Inherits System.Web.UI.Page
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
+        Response.Write(PageIKT.Inicializar(ViewState))
+    End Sub
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetActas(ByVal pPageSize As Integer, ByVal pCurrentPage As Integer, ByVal pSortColumn As String, ByVal pSortOrder As String, ByVal hash As String, ByVal where As Hashtable) As JQGridJsonResponse
+        'Dim respuesta
+        'respuesta = New JQEdiResponse()
+        'Return respuesta;
+        If where("CAMPANA") = "" Then
+            Return PageIKT.getGridEntidad(pPageSize, pCurrentPage, pSortColumn, pSortOrder, hash, where, New TBACTACONTROLEXT(), New JQGridJsonResponseActasControl())
+        Else
+            Return PageIKT.getGridEntidad(pPageSize, pCurrentPage, pSortColumn, pSortOrder, hash, where, New TBACTACONTROLEXT(), New JQGridJsonResponseActasControl(), New SQLWHERE("CAMPANA", where("CAMPANA")))
+            'Return PageIKT.getGridEntidad(pPageSize, pCurrentPage, pSortColumn, pSortOrder, hash, where, New TBACTACONTROL(), New JQGridJsonResponseActasControl(), 1, where)
+        End If
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetActasAyuda(ByVal pPageSize As Integer, ByVal pCurrentPage As Integer, ByVal pSortColumn As String, ByVal pSortOrder As String, ByVal hash As String, ByVal where As Hashtable) As JQGridJsonResponse
+        Dim actap As New TBACTACONTROLEXT
+        actap = BPM.obtener(actap.GetType(), JQGridItem.getArrPKs(where("acta").ToString()))
+        If actap Is Nothing Then
+            Dim err = SessionIKT.GetErrores()
+            Return Nothing
+        End If
+        Return PageIKT.getGridEntidad(pPageSize, pCurrentPage, pSortColumn, pSortOrder, hash, where, New TBACTACONTROL(), New JQGridJsonResponseActasControlAyuda(), New SQLWHERE("CAMPANA", actap.campana), New SQLWHERE("SOLNUMSU", actap.solnumsu))
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetTipoControl(ByVal pterm As String) As JQCombo
+        Return PageIKT.getEdicionCombo(SessionIKT.getValor("viewhash"), "TIPOCONTROLDES_C", "TIPOCONTROLCOD", "txtTIPOCONTROLDES_C", "txtTIPOCONTROLCOD", New TMTIPOCONTROL, False)
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+    Public Shared Function GetExplotacion(ByVal pterm As String, ByVal campana As String) As JQCombo
+        'Return PageIKT.getEdicionCombo(SessionIKT.getValor("viewhash"), "EXPLOCOD", "EXPLOCOD", "txtEXPLOCOD", "txtEXPLOCOD2", New TBSOLAGRO, False)
+        Dim ret As String = ""
+        Dim miNegocio As New Negocio_TBACTACONTROL
+        Dim dt As DataTable
+        dt = miNegocio.ComboAgro(CInt(campana))
+        Dim jqCombo As New JQComboExt
+        jqCombo.CampoDes = "EXPLOCOD"
+        jqCombo.CampoValor = "EXPLOCOD"
+        jqCombo.inputDes = "txtEXPLOCOD"
+        jqCombo.inputValor = "txtEXPLOCOD2"
+        jqCombo.MultiIdioma = False
+        jqCombo.llenar(dt)
+        Return jqCombo
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetInspector(ByVal pterm As String) As JQCombo
+        Return PageIKT.getEdicionCombo(SessionIKT.getValor("viewhash"), "INSIDENTIFICACION", "INSNUMDNI", "txtINSIDENTIFICACION", "txtINSNUMDNI", New TMINSPECTORES, False)
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetEdicion(ByVal ID As String, ByVal hash As String) As Object
+        Dim ent As New TBACTACONTROLEXT
+        Dim respuesta As JQEdiResponse = PageIKT.getEdicionEntidad(ID, hash, New TBACTACONTROLEXT)
+        Dim data As Hashtable = CType(respuesta.data, Hashtable)
+        data.Add("solicitante", (data("soltitnom") & " " & data("soltitape1") & " " & data("soltitape2")).ToString().Trim())
+        data.Add("cif_nif", (data("solletdni") & " " & data("solnumdni") & " " & data("solcondni")).ToString().Trim())
+        respuesta.data = data
+        Return respuesta
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetEdicionActasAyuda(ByVal ID As String, ByVal hash As String) As Object
+        Return PageIKT.getEdicionEntidad(ID, hash, New TBACTACONTROL)
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function Save_ActasControlAyuda(ByVal data As Hashtable) As JQEdiResponse
+        Dim ent As New TBACTACONTROL
+        Dim ins As TMINSPECTORES
+        Dim inspectores As ArrayList = BPM.obtenerLista(New TMINSPECTORES, New SQLWHERE("INSNUMDNI", data("INSNUMDNI")))
+        If Not inspectores Is Nothing AndAlso inspectores.Count > 0 Then
+            ins = CType(inspectores(0), TMINSPECTORES)
+            data.Add("INSLETDNI", ins.insletdni)
+            data.Add("INSCONDNI", ins.inscondni)
+        End If
+        Dim jQE As JQEdiResponse = PageIKT.saveEntidad(data, data("hash"), data("ID").ToString(), ent, Nothing, False)
+        Return jQE
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function Save_Actas(ByVal data As Hashtable) As JQEdiResponse
+        Dim ent As New TBACTACONTROLEXT
+        ent.solnumsu = 0
+        Dim jQE As JQEdiResponse = PageIKT.saveEntidad(data, data("hash"), data("ID").ToString(), ent, Nothing, True)
+        Dim actas As ArrayList = BPM.obtenerLista(ent.GetType, New SQLWHERE("SOLNUMSU", ent.solnumsu), New SQLWHERE("CAMPANA", ent.campana))
+        If Not actas Is Nothing And actas.Count > 0 Then
+            ent = CType(actas(0), TBACTACONTROLEXT)
+        End If
+        Dim dataresp As Hashtable = ent.hdata
+        dataresp.Add("solicitante", (dataresp("soltitnom") & " " & dataresp("soltitape1") & " " & dataresp("soltitape2")).ToString().Trim())
+        dataresp.Add("cif_nif", (dataresp("solletdni") & " " & dataresp("solnumdni") & " " & dataresp("solcondni")).ToString().Trim())
+        jQE.data = dataresp
+        Return jQE
+    End Function
+    <WebMethod()> _
+   <ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+   Public Shared Function GetLiterales(ByVal Literales As Hashtable) As Hashtable
+        ' Aqui llegara en Literales un hashtable con el grupo o conjunto de literales que queremos buscar
+        Dim misLiterales As New Hashtable
+        misLiterales.Add("1", "Solicitudes")
+        misLiterales.Add("2", "Filtro de búsqueda")
+        misLiterales.Add("3", "Ayuda")
+        misLiterales.Add("4", "Tipo")
+        misLiterales.Add("5", "Documento")
+        misLiterales.Add("7", "Editar")
+        misLiterales.Add("8", "Alta")
+        misLiterales.Add("9", "Baja")
+        misLiterales.Add("10", "{0} - {1} de {2} elementos")
+        misLiterales.Add("11", "Formulario de Edición")
+        misLiterales.Add("12", "Código")
+        misLiterales.Add("13", "Aceptar")
+        misLiterales.Add("14", "Cancelar")
+        Return misLiterales
+    End Function
+    <WebMethod()> _
+<ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function GetCampanas(ByVal pterm As String) As JQCombo
+        Dim miNegocio
+        Dim dt As DataTable
+        miNegocio = New Negocio_tmcampanas
+        dt = miNegocio.obtenerListaDT()
+        Dim jqCombo As New JQComboExt
+        jqCombo.CampoDes = "CAMPANA"
+        jqCombo.CampoValor = "CAMPANA"
+        jqCombo.inputDes = "busCampana"
+        jqCombo.inputValor = "busCampana"
+        jqCombo.MultiIdioma = False
+        jqCombo.llenar(dt)
+      Return jqCombo
+    End Function
+    Public Function getCampana() As String
+        'Return SessionIKT.getValor("campana")
+        Dim ret As String = ""
+        Dim DAO_DAL As New DAO_DAL
+        Dim dt As DataTable = DAO_DAL.ObtenerDatosSQL(New ConexionIKT("PRINCIPAL"), "SELECT MAX(CAMPANA) as campana FROM DFAAGRO.TMCAMPANAS")
+        If dt.Rows.Count <> 0 Then
+            Return dt.Rows(0)("campana")
+        Else
+            Return ""
+        End If
+    End Function
+    <WebMethod()> _
+ <ScriptMethod(ResponseFormat:=ResponseFormat.Json)> _
+Public Shared Function DeleteControl(ByVal ID As String, ByVal hash As String) As JQEdiResponse
+        Dim ent As New TBACTACONTROLEXT
+        ent.solnumsu = 0
+        Dim jQE As JQEdiResponse = PageIKT.deleteEntidad(ID, hash, ent)
+        Return jQE
+    End Function
+End Class
+ ]]>
+		</code>
+	</example>
+	<remarks>No siempre dara solución a todas las necesidades pero si en una gran parte.</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.obtenerNegocio(System.String,System.String,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Obtiene un negocio a partir el nombre de la entidad y el namespace.
+ </summary>
+	<param name="TipoEnt"></param>
+	<param name="nNamespace"></param>
+	<param name="con"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.obtenerNegocio(System.String,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+	</summary>
+	<param name="TipoEnt">Namespace.Tipo</param>
+	<param name="con"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregaroReemplazar(IKT.RecAplNet.Entidades.iEntidad)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregar(IKT.RecAplNet.Entidades.iEntidad)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregarObtener(IKT.RecAplNet.Entidades.iEntidad@)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad, se pasa la entidad por referencia. 
+ Este método se utiliza en los casos en que la entidad utilice códigos autoincrementales. 
+ La entidad pasada por referencia agregada y completada con dichos métodos.
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.guardar(IKT.RecAplNet.Entidades.iEntidad)">
+	<summary>
+ Metodo que se utiliza para guardar una entidad existente
+ </summary>
+	<param name="Entidad">Entidad que se va a guardar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.GuardarEc(IKT.RecAplNet.Entidades.iEntidad@)">
+	<summary>
+ Metodo que se utiliza para guardar una entidad compleja existente
+ </summary>
+	<param name="Entidad">Entidad compleja que se va a guardar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.GuardarEc(IKT.RecAplNet.Entidades.iEntidad@,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para guardar una entidad compleja existente
+ </summary>
+	<param name="Entidad">Entidad compleja que se va a guardar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.eliminar(IKT.RecAplNet.Entidades.iEntidad)">
+	<summary>
+ Metodo que se utiliza para eliminar una entidad existente
+ </summary>
+	<param name="Entidad">Entidad que se va a eliminar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.eliminarEc(IKT.RecAplNet.Entidades.iEntidad)">
+	<summary>
+ Metodo que se utiliza para eliminar una entidad existente
+ </summary>
+	<param name="Entidad">Entidad que se va a eliminar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregarEc(IKT.RecAplNet.Entidades.iEntidad@)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregarEc(IKT.RecAplNet.Entidades.iEntidad@,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregaroReemplazar(IKT.RecAplNet.Entidades.iEntidad,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<param name="con"> Conxion que se va a utilizar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregar(IKT.RecAplNet.Entidades.iEntidad,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<param name="con"> Conxion que se va a utilizar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.agregarObtener(IKT.RecAplNet.Entidades.iEntidad@,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para dar de alta una nueva entidad, se pasa la entidad por referencia. 
+ Este método se utiliza en los casos en que la entidad utilice códigos autoincrementales. 
+ La entidad pasada por referencia agregada y completada con dichos métodos.
+ </summary>
+	<param name="Entidad">Entidad que se va a agregar</param>
+	<param name="con"> Conxion que se va a utilizar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.guardar(IKT.RecAplNet.Entidades.iEntidad,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para guardar una entidad existente
+ </summary>
+	<param name="Entidad">Entidad que se va a guardar</param>
+	<param name="con"> Conxion que se va a utilizar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.eliminar(IKT.RecAplNet.Entidades.iEntidad,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para eliminar una entidad existente
+ </summary>
+	<param name="Entidad">Entidad que se va a eliminar</param>
+	<param name="con"> Conxion que se va a utilizar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.eliminarEc(IKT.RecAplNet.Entidades.iEntidad,IKT.RecAplNet.General.ConexionIKT)">
+	<summary>
+ Metodo que se utiliza para eliminar una entidad existente
+ </summary>
+	<param name="Entidad">Entidad que se va a eliminar</param>
+	<param name="con"> Conxion que se va a utilizar</param>
+	<returns>Verdadero o Falso si la ejecución ha sido correcta</returns>
+	<remarks>Si se produce algún error de negocio, este queda registrado en SessionIKT</remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.BPM.obtenerGridBD(IKT.RecAplNet.Entidades.iEntidad,System.Int32,System.Int32,System.Object[])">
+	<summary>
+  Obtiene una página de una lista 
+ </summary>
+	<param name="entidad"></param>
+	<param name="pCurrentPage"></param>
+	<param name="pPageSize"></param>
+	<param name="lista"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.Negocios.BPM">
+	<summary>
+ Esta clase se utiliza para mantener entidades con independencia del negocio subyacente. La persona
+ que vaya a mantener una entidad no necesita saber si el negocio se a extendeido o no. Por ejemplo para guardar un animal 
+ solo tendríamos que llamar a BPM.guardar(animal), sin necesidad de saber si existe un Negocio_Animal o no.
+ La funcionalidad ofrecida es la misma que la interfaz INegocio más la de SQLConfig. La única salvedaz es que cuando se optienen
+ las listas hay que indicar los tipos ya sea por string, por un elemento type, o por una instancia de IEntidad.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.CMBHAZI.UpdateToString(IKT.RecAplNet.Entidades.Entidad)">
+	<summary>
+ Función que se utiliza para construir una insert con oparametros de salida 
+ </summary>
+	<param name="Entidad"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.data">
+	<summary>
+ Lista de elementos JQTreeItem que representan el árbol.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.descFields">
+	<summary>
+ Lista de valores de texto que representan los nombres de campos 
+ del datatable que dan valor al texto que se muestra en cada una 
+ de las columnas de cada nodo.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.primarys">
+	<summary>
+ Lista de valores de texto que representan los nombres de campos 
+ del datatable que, unidos, forman la clave de cada nodo del árbol.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.levelCount">
+	<summary>
+ Número de niveles totales del árbol, indexado a 1 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.attrType">
+	<summary>
+ Nombre del campo del datatable que representa el tipo de cada nodo
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.attrIcon">
+	<summary>
+ Nombre del campo del datatable que representa el icono de cada nodo
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.getTreeItem(System.Int32,System.Data.DataTable@,System.Data.DataRow@)">
+	<summary>
+ Para un nivel concreto, a partir de una fila de un datatable, 
+ devuelve un objeto JQTreeItem
+ </summary>
+	<param name="level">Nivel del árbol</param>
+	<param name="dt">Datatable</param>
+	<param name="oRow">Fila del datatable</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse.llenar(System.Int16,System.Data.DataTable)">
+	<summary>
+ Para un nivel concreto, rellena la colección data 
+ con JQTreeItems obtenidos a partir de los datos 
+ del datatable proporcionado
+ </summary>
+	<param name="level"></param>
+	<param name="dt"></param>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQTreeJsonResponse">
+	<summary>
+ Respuesta JSON para jquery.ikt.tree.v2.js
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.PageCount">
+	<summary>
+ Cantidad de páginas del JQGrid.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.CurrentPage">
+	<summary>
+ Página actual del JQGrid.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.RecordCount">
+	<summary>
+ Cantidad total de elementos de la lista.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.where">
+	<summary>
+ Cantidad total de elementos de la lista.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.Items">
+	<summary>
+ Lista de elementos del JQGrid.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.totales">
+	<summary>
+ Cantidad total de elementos de la lista.
+ </summary>
+</member><member name="F:IKT.RecAplNet.VistaWeb.JQGridJsonResponse._funtotales">
+	<summary>
+ Hashhtable que tiene como key el campo de bases de datos
+ y como value la función compute(sum(campo),avg(campo)....)
+ </summary>
+	<remarks>Es necesario rellenar tambien la propiedad camposTotales</remarks>
+</member><member name="F:IKT.RecAplNet.VistaWeb.JQGridJsonResponse._campostotales">
+	<summary>
+ Hashhtable que tiene como key el campo de bases de datos
+ y como value el índice de la columna del grid(javascript) 
+ </summary>
+	<remarks>Es necesario rellenar tambien la propiedad funTotales</remarks>
+</member><member name="F:IKT.RecAplNet.VistaWeb.JQGridJsonResponse._formatos">
+	<summary>
+ Hashtable con los formatos rellenos con el par columna,Formato
+ </summary>
+	<remarks>Los formatos bienen definidas por las constantes de la clase JQFormatos</remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQGridJsonResponse.getDataTable">
+	<summary>
+ Devuelve el dt en el que se basa el grid
+ </summary>
+	<returns>binary data</returns>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQGridJsonResponse">
+	<summary>
+ Respuesta JSON para JQGrid.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQNubeItem.tag">
+	<summary>
+ Propiedades del objeto:
+ tag --&gt; representará el texto
+ freq --&gt; reperesentará la frequencia
+ </summary>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQNubeItem.#ctor">
+	<summary>
+ Constructores
+ </summary>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQNubeItem">
+	<summary>
+ Objeto Item perteneciente relacionado con la clase JQNubeItem
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQSubGridJsonResponse.Items">
+	<summary>
+ Lista de elementos del JQSubGrid.
+ </summary>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQSubGridJsonResponse">
+	<summary>
+ Respuesta JSON para JQGrid.
+ </summary>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32,System.Int32)">
+	<summary>
+ Crea un error con el número pasado, y las descripciones las obtiene de la conexión "USYS" de la base de datos .
+  Dim dt As DataTable = Daos.DAO_DAL.GetInstancia.ObtenerDatosSQL(New ConexionIKT("USYS"), sbSelect.ToString)
+ </summary>
+	<param name="ErrorNum"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32,System.Int32,System.String)">
+	<summary>
+ Crea un error con el número pasado, y las descripciones las obtiene de la conexión "USYS" de la base de datos .
+  Dim dt As DataTable = Daos.DAO_DAL.GetInstancia.ObtenerDatosSQL(New ConexionIKT("USYS"), sbSelect.ToString)
+ </summary>
+	<param name="ErrorNum"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32)">
+	<summary>
+ Crea un error con el número pasado, y las descripciones las obtiene de la conexión "USYS" de la base de datos .
+  Dim dt As DataTable = Daos.DAO_DAL.GetInstancia.ObtenerDatosSQL(New ConexionIKT("USYS"), sbSelect.ToString)
+ </summary>
+	<param name="ErrorNum"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32,System.String,System.Int32)">
+	<summary>
+ Crea un error sin acceder a BD con la descripción solo en Castellano
+ </summary>
+	<param name="ErrorNum"></param>
+	<param name="ErrorDesc_C"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32,System.String)">
+	<summary>
+ Crea un error sin acceder a BD con la descripción solo en Castellano
+ </summary>
+	<param name="ErrorNum"></param>
+	<param name="ErrorDesc_C"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32,System.String,System.String)">
+	<summary>
+ Crea un error sin acceder a BD con la descripción solo en Castellano y Euskera
+ </summary>
+	<param name="ErrorNum"></param>
+	<param name="ErrorDesc_C"></param>
+	<param name="ErrorDesc_E"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ErroresIKT.#ctor(System.Int32,System.String,System.String,System.Int32)">
+	<summary>
+ Crea un error sin acceder a BD con la descripción solo en Castellano y Euskera
+ </summary>
+	<param name="ErrorNum"></param>
+	<param name="ErrorDesc_C"></param>
+	<param name="ErrorDesc_E"></param>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.General.ErroresIKT">
+	<summary>
+ Clase para tratar los Errores de IKT. Estos tienen un Número y las descripciones en los distintos idiomas.
+ </summary>
+	<remarks>Existen unos errores generales predefinidos, que se detallan en las constantes</remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.getValor(System.String)">
+	<summary>
+ Obtiene un valor de Session
+ </summary>
+	<param name="nombre"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.setValor(System.String,System.Object)">
+	<summary>
+ Establece un valor de session
+ </summary>
+	<param name="nombre"></param>
+	<param name="valor"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.removeValor(System.String)">
+	<summary>
+ Quita el valor de session
+ </summary>
+	<param name="nombre"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.setlog(System.String,System.String,System.String)">
+	<summary>
+ Añade un registro de log
+ </summary>
+	<param name="LOGCLASE"></param>
+	<param name="LOGMETODO"></param>
+	<param name="LOGMESSAGE"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.setError(System.Object)">
+	<summary>
+ establece un error en sessionIKT
+ </summary>
+	<param name="valor"></param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.Errores">
+	<summary>
+ Devuelve si hay errores o no en session
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.SessionIKT.GetErrores">
+	<summary>
+ Devuelve los errores y los borra de session para que no se acumulen
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.SessionIKT.getLiterales(System.String,System.Collections.ArrayList)">
+	<summary>
+ optiene los literales de BD
+ </summary>
+	<param name="grucod"></param>
+	<param name="listaIDS"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.General.SessionIKT">
+	<summary>
+ Clase necesaria para almcenar variables en Session tanto en aplicaciones de escritorio como web.
+ </summary>
+	<remarks>Se deben de utilizar los métodos getValor y setValor</remarks>
+</member><member name="M:IKT.RecAplNet.Daos.dao.obtener(System.Object[])">
+	<summary>
+	</summary>
+	<example>
+		<code>
+ dim mun as Municipio=dao_Municipio.obtener(01,12)
+ </code>
+	</example>
+	<param name="lista">Enumeración de los valores de la clave, de forma oredenada.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.dao.Guardar(IKT.RecAplNet.Entidades.Entidad)">
+	<summary>
+	</summary>
+	<param name="EntidadAGuardar"></param>
+	<returns>True o False si se a procesado correctamente</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.dao.AgregarObtener(IKT.RecAplNet.Entidades.Entidad@)">
+	<summary>
+ Función que se utiliza para realizar una insert que devuelve valores. 
+ Por ejemplo una insert con la clave autonumérica.
+ </summary>
+	<param name="EntidadAAgregar"></param>
+	<returns>verdadero o falso si se a ejecutado correctamente</returns>
+	<remarks>La entidad se pasa por referencia, con lo que se rellena la entidad con los valores devueltos</remarks>
+</member><member name="T:IKT.RecAplNet.Daos.dao">
+	<summary>
+ Clase que se utiliza para recuperar los valores de una entidad de base de datos.
+ Es encesario configurar los parámetros en el método inicializar, para lo cual se dispone de la herramienta Jazz.
+ </summary>
+	<example>
+		<code>
+ Imports IKT.RecAplNet.Daos
+Imports IKT.RecAplNet.General
+Imports IKT.RecAplNet.Entidades
+    Namespace Daos
+        Public Class Dao_t_especies_medtransp_cont
+            Inherits dao
+            Sub New()
+                Inicializa()
+            End Sub
+            Sub New(ByVal Con As ConexionIKT)
+                _con = Con
+                Inicializa()
+            End Sub
+            Private Sub Inicializa()
+                _Dll = "Negociosirentra.dll"
+                _Entidad = "IKT.Negociosirentra.Entidades.T_ESPECIES_MEDTRANSP_CONT"
+                _tablaMaster = "dbo.T_ESPECIES_MEDTRANSP_CONT"
+                _foreignPrincipal.Add(New foreign("TC_RIIAREMOFAMILIA", New String() {"ve_cod_familia"}, New String() {"ID"}))
+                _foreignPrincipal.Add(New foreign("TC_ESPECIE", New String() {"ve_cod_familia", "ve_cod_especie"}, New String() {"ES_CO_FAMILIA", "ID"}))
+                _tablaJoin = ""
+                _htItems.Add("ve_clave", "T_ESPECIES_MEDTRANSP_CONT.VE_CLAVE")
+                _htItems.Add("ve_mt_clave", "T_ESPECIES_MEDTRANSP_CONT.VE_MT_CLAVE")
+                _htItems.Add("tr_codigosirentra", "T_ESPECIES_MEDTRANSP_CONT.TR_CODIGOSIRENTRA")
+                _htItems.Add("ve_mt_id", "T_ESPECIES_MEDTRANSP_CONT.VE_MT_ID")
+                _htItems.Add("ve_co_clave", "T_ESPECIES_MEDTRANSP_CONT.VE_CO_CLAVE")
+                _htItems.Add("ve_co_id", "T_ESPECIES_MEDTRANSP_CONT.VE_CO_ID")
+                _htItems.Add("ve_cod_familia", "T_ESPECIES_MEDTRANSP_CONT.VE_COD_FAMILIA")
+                _htItems.Add("ve_cod_especie", "T_ESPECIES_MEDTRANSP_CONT.VE_COD_ESPECIE")
+                _htItems.Add("ve_num_colmenas", "T_ESPECIES_MEDTRANSP_CONT.VE_NUM_COLMENAS")
+                _htItems.Add("ve_num_peces", "T_ESPECIES_MEDTRANSP_CONT.VE_NUM_PECES")
+                _htItems.Add("ve_peso_peces", "T_ESPECIES_MEDTRANSP_CONT.VE_PESO_PECES")
+                _htItems.Add("gr_fec_act", "T_ESPECIES_MEDTRANSP_CONT.GR_FEC_ACT")
+                _htItems.Add("gr_tip_act", "T_ESPECIES_MEDTRANSP_CONT.GR_TIP_ACT")
+                _htItems.Add("icod_ope", "T_ESPECIES_MEDTRANSP_CONT.ICOD_OPE")
+                _htItems.Add("ve_cidm", "T_ESPECIES_MEDTRANSP_CONT.VE_CIDM")
+                _htItems.Add("conusucod", "T_ESPECIES_MEDTRANSP_CONT.CONUSUCOD")
+                _htItems.Add("conmodfec", "T_ESPECIES_MEDTRANSP_CONT.CONMODFEC")
+            End Sub
+        End Class
+    End Namespace
+ </code>
+	</example>
+	<remarks>
+ Para la integridad  se establecen las propiedades foreignPrincipal que es la forign en la tabla que se mantiene,
+ y foreignHijos, que son los detalles de el registro que se mantiene. 
+ </remarks>
+</member><member name="M:IKT.RecAplNet.General.ConexionIKT.#ctor(System.String)">
+	<summary>
+	</summary>
+	<param name="NameConDao">Nombre de la conexión en el fichero Connection.Config</param>
+	<example>
+		<code>
+ new ConexionIKT("NegocioUsys")
+ </code>
+	</example>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.General.ConexionIKT">
+	<summary>
+ Clase para crear una conexion con base de datos. Es necesario configurar el fichero AppConnection.Config.
+ Donde PRINCIPAL sera la conexión que se utilice por defecto.
+ </summary>
+	<example>Ejemplo de confiuracion del fichero AppConection.Config
+ <code>
+			<![CDATA[
+ <?xml version="1.0" encoding="utf-8"?>
+ <connectionStrings>
+ <add connectionString="Data Source=ORA10GDE;User Id=****;Password=****;" name="USYS" providerName="System.Data.OracleClient" />
+ <add connectionString="Data Source=IKTSQLDE01;User Id=*****;Password=****;Initial Catalog=SIRENTRA_PV_BD;" name="PRINCIPAL" providerName="System.Data.SqlClient"/>
+ </connectionStrings>
+ ]]>
+		</code>
+	</example>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ReflectionIKT.getKnownTypes">
+	<summary>
+ Metodo que devuelve una Enumeración de los tipos del ensamblado, necesarios para las seralizaciones
+ </summary>
+	<returns>IEnumerable</returns>
+	<remarks>Serializacion</remarks>
+</member><member name="M:IKT.RecAplNet.General.ReflectionIKT.getTipo(System.String)">
+	<summary>
+  Si se tiene el mismo nombre de clase en distintos ensamblados, es necesario pasar el
+ nombre completo del tipo(con namespace), para encontrar el tipo deseado
+ </summary>
+	<param name="tipo">Tipo de la clase</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.ReflectionIKT.getTipo(System.String,System.Reflection.Assembly@)">
+	<summary>
+  Si se tiene el mismo nombre de clase en el ensamblado pasado, es necesario pasar el
+ nombre completo del tipo(con namespace), para encontrar el tipo deseado
+ </summary>
+	<param name="tipo">Tipo de la clase</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.accorItems">
+	<summary>
+ Lista de items del accordeon
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.titCols">
+	<summary>
+ Columnas que contiene los Títulos del Acordeon.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.titKeySep">
+	<summary>
+ Caracter de separación separación entre las columnas de títulos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.titlesTag">
+	<summary>
+ Tag que contendrá el títulos, pro defecto es un la etiqueta H3
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.titlesCssClass">
+	<summary>
+  Clase CSS que se añadirá a los títulos del acordeon por defecto el nombre es dinAccorItemTittle
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.itemsCssClass">
+	<summary>
+  Clase CSS que se añadirá a los items del acordeon por defecto el nombre es dinAccorItem
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.itemsTag">
+	<summary>
+ Tags que contendrá cada uno de los items del accordeon.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.Formatos">
+	<summary>
+ Hastable con los nombres de las columnas que se quieren formatear a un JQFOrmato concreto.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.idCols">
+	<summary>
+ Clumnas del fdatatable que formarán el ID de los items del accordeon
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.colPag">
+	<summary>
+ Columna de que contiene la url de la página que debe cargar cada item.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.pageParams">
+	<summary>
+ Por defecto se pasa los campos de la clave a la página
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.precargar">
+	<summary>
+ Opción que determina si las páginas se cargarán todas al principio o si por el contrario 
+ se cargarán al hacer click sobre las cabeceras.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccor.cachear">
+	<summary>
+ Opción que establece si el acordeón debe cachear o no las páginas. 
+ Es decir solo las cargará la primera vez que hagamos un click sobre el item en cuestión.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQDinAccor.getPKs(System.Data.DataTable@,System.Data.DataRow@)">
+	<summary>
+ Método que carga las PKs del Datatable.
+ </summary>
+	<param name="dt"></param>
+	<param name="oRow"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQDinAccor.rowToItem(System.Data.DataRow)">
+	<summary>
+ Función que crea un JQDinAccorItem a partir de las propiedades rellenadas.
+ </summary>
+	<param name="row"></param>
+	<returns>JQDinAccorItem</returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQDinAccor.llenar(System.Data.DataTable)">
+	<summary>
+ creación de la lista de JQDinAccorItem a partir de las propiedades rellenadas.
+ </summary>
+	<param name="dt"></param>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQDinAccor">
+	<summary>
+ Clase que devuelve una instancia de acordeón dinámico. Este acordeón se rellenará a partir de un datatable.
+ Esta clase contiene propiedades generales del componente así como una lista de JQDinAccorItem que contiene las propiedades de cada uno de los items del accordeon.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccorItem.idItem">
+	<summary>
+ Id del item del acordeon normalmente en la forma (col1  pageIKT.keySep col2)= col1jqcodcol2
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccorItem.tituloItem">
+	<summary>
+ Título del item formadas por las columnas especificadas y el separador dado.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccorItem.cargado">
+	<summary>
+ propiedad que establece si el item ha sido cargado
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccorItem.pagina">
+	<summary>
+ URL de la página que caragará el item
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQDinAccorItem.parametros">
+	<summary>
+ Parámetors query string que se le pasara a la página. Por defecto se le pasan los campos de la clave.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Daos.IDALHAZI.ProcesaCountSql(System.String)">
+	<summary>
+ Función que retorna el número de registros
+ </summary>
+	<param name="sSQL"></param>
+	<returns></returns>
+	<remarks>el </remarks>
+</member><member name="M:IKT.RecAplNet.Daos.IDALHAZI.ProcesaSQLOUT(System.Data.Common.DbCommand)">
+	<summary>
+ Sql de insert con parámetros de salida
+ </summary>
+	<param name="mComando"></param>
+	<returns>un Hashtable con los nombres de los items de salida y su valor.</returns>
+	<example>
+		<code>
+  Dim ht As Hashtable = DAO_DAL.GetInstancia.ProcesaSQLOUT(con, InsertToStringOut(EntidadAAgregar))
+ </code>
+	</example>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.nombre">
+	<summary>
+ Nombre del atributo o campo del datatable que se va a serializar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.longitud">
+	<summary>
+ Longitud fija que mantendrá el item, si este ocupa menos se rellenará con el caracter de relleno, en caso 
+ contrario se truncará. En caso que no se especifique o valga cero se obviará. Si se está deserializando se asumirá
+ que el valor del item va desde posición a posición+longitud.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.posicion">
+	<summary>
+ En que cáracter empieza el valor del item.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.formato">
+	<summary>
+ Formato que se utilizará en el método toString del item en cuestion. Ver JQFOrmatos.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.caracterRelleno">
+	<summary>
+ Caracter de rellleno que se utilizará en caso de tener una longitud fija. Por deferecto se utiliza espacio en blanco.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.ladoARellenar">
+	<summary>
+ Lado al que se rellena con el caracter de relleno en caso de que que no se cumpla la longitud.Por defecto a la derecha.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtItemSerializer.valorDefeto">
+	<summary>
+ Valor por defecto que se establecera en caso de que la columna o atributo sea nulo.Por defecto el caracter vacío.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.iEntidad.desSerializarXML(System.String)">
+	<summary>
+ Rellena los datos de la entidad con el contenido de un xml definido en el DataContract
+ </summary>
+	<param name="xml">xmlstring</param>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Entidades.iEntidad.deserializarJSON(System.String)">
+	<summary>
+ Rellena los datos de la entidad con el contenido de un jstring definido en el DataContract
+ </summary>
+	<param name="jsonStr">xmlstring</param>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.Entidades.iEntidad">
+	<summary>
+ Interfaz que se debe implementar por cualquier entidad. La mayor parte esta implementada por la clase entidadIKT 
+ </summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.INegocio.agregar(IKT.RecAplNet.Entidades.iEntidad)">
+	<summary>
+ Agrega una entidad
+ </summary>
+	<param name="Entidad"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.INegocio.agregarObtener(IKT.RecAplNet.Entidades.iEntidad@)">
+	<summary>
+ Agrega una entidad y la rellena
+ </summary>
+	<param name="Entidad"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.INegocio.obtenerGridBD(System.Int32,System.Int32,System.Object[])">
+	<summary>
+  Obtiene una página de una lista 
+ </summary>
+	<param name="pCurrentPage"></param>
+	<param name="pPageSize"></param>
+	<param name="lista"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQSubGridItem.Row">
+	<summary>
+ Fila del JQSubGrid.
+ </summary>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQSubGridItem.#ctor">
+	<summary>
+ Contructor.
+ </summary>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQSubGridItem">
+	<summary>
+ Item del JQGrid. Elemento de la propiedad Items de la clase JsonJQGridResponse.
+ </summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQCombo.Items">
+	<summary>
+ Lista de elementos del JQSubGrid.
+ </summary>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQCombo">
+	<summary>
+ Respuesta JSON para JQGrid.
+ </summary>
+</member><member name="F:IKT.RecAplNet.Daos.GridBD._pagina">
+	<summary>
+ Es un datatable con los registros pertenecientes a la página
+ </summary>
+	<remarks></remarks>
+</member><member name="F:IKT.RecAplNet.Daos.GridBD._indicePag">
+	<summary>
+ Es la página actual en la que nos encontramos
+ </summary>
+	<remarks></remarks>
+</member><member name="F:IKT.RecAplNet.Daos.GridBD._tampagina">
+	<summary>
+ Es el tamaño de la página en la que nos encontramos
+ </summary>
+	<remarks></remarks>
+</member><member name="F:IKT.RecAplNet.Daos.GridBD._RegTotales">
+	<summary>
+  Es el número de registros totales de la página
+ </summary>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.General.tipoParseo">
+	<summary>
+ Si se elige optimista se parseará todas la líneas que se puedan. En caso de elegirse estricto se parseará todas o ninguna.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.longitudLinMin">
+	<summary>
+ Mínima longitud que debe tener la línea. Se rellenará con el caracter de relleno en caso de ser mas corta.
+ En caso de que sea 0 o se omita este parámetro se obviará 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.longitudLinMax">
+	<summary>
+ Máxima longitud de línea, si se supera la línea se truncará. En caso de que no se especifique o sea cero se obviará.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.maxNumLin">
+	<summary>
+ Número máximo de líneas que se serializarán. En caso de ser cero o no especificarse se obviará este parámetro.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.caracterRelleno">
+	<summary>
+ Caracter con el que se rellenará la línea en caso de que esta no alcance la longitud deseada. Por defecto, espacio en blanco.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.ladoARellenar">
+	<summary>
+ Lado al que se rellena con el caracter de relleno en caso de que que no se cumpla la longitud. Por defecto a la derecha.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.valorDefeto">
+	<summary>
+ Valor por defecto que se establecera en caso de que la columna o atributo sea nulo.Por defecto el caracter vacío.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.startLine">
+	<summary>
+ Línea a parsear antes de mover el puntero del stringReader
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.finishLine">
+	<summary>
+ Última linea leida
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.itemsSerializer">
+	<summary>
+ Lista de txtItemSerializer. Si algún campo o atributo no se ha especificado se aplicará la seralización por defecto, toString().
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.serializarEspecificados">
+	<summary>
+ Establece si se van a serializar solo las propiedades  especificadas en itemsserializer, o por si el contrario se van serializar todas.
+ En el caso de la deserialización solo se tendrán en cuenta los items especificados independientemente del valor de esta propiedad.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.separador">
+	<summary>
+ Carácter que se utiliza para separar los campos de las líneas del fichero. Por defecto el caracter vacío.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.General.txtSerializer.final">
+	<summary>
+ Marca si se ha llegado al final
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.txtSerializer.deserializar(System.Type,System.IO.StreamReader@,IKT.RecAplNet.General.tipoParseo)">
+	<summary>
+ solo deserializará aquellos elementos configurados en caso de que no se especifique un separador. Si se elige parseo estricto en el momento que no se pueda parsear una linea se devuelve nothing
+ </summary>
+	<param name="reader"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.txtSerializer.deserializar(System.IO.StreamReader@,IKT.RecAplNet.General.tipoParseo)">
+	<summary>
+ solo deserializará aquellos elementos configurados en caso de que no se especifique un separador. Si se elige parseo estricto en el momento que no se pueda parsear una linea se devuelve nothing
+ </summary>
+	<param name="reader"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.txtSerializer.loadConf(System.String,System.String,System.String)">
+	<summary>
+ Crea un txtSerializer con las opciones especificadas en el archivo Serializer.config.
+ Por defecto intentara cargar el xml ubicado en la url especificada en el fichero de configuración de aplicación APPSettings con el key txtConfigPath.
+ En caso de de que este key no exista en el APPSettings se asume que lo que se ha pasado por parámetro es un xmlstring.
+ El fichero de se divide en grupos que tienen distintas configuraciones. 
+ <example>
+			<code>
+				<![CDATA[
+     <?xml version="1.0" encoding="UTF-8"?>
+<GRUPO nombre="">
+    <CONFIGURACION nombre="">
+      <SERIALIZER>
+         <caracterRelleno>[OPCIONAL]</caracterRelleno>
+         <ladoARellenar>[OPCIONAL]</ladoARellenar>
+         <longitudLinMax>[OPCIONAL]</longitudLinMax>
+         <longitudLinMin>[OPCIONAL]</longitudLinMin>
+         <maxNumLin>[OPCIONAL]</maxNumLin>
+        <separador>[OPCIONAL]</separador>
+         <serializarEspecificados>True</serializarEspecificados>
+         <valorDefeto>[OPCIONAL]</valorDefeto>
+        <ITEMS>
+           <ITEM>
+               <nombre></nombre>
+               <caracterRelleno>[OPCIONAL]</caracterRelleno>
+               <formato>[OPCIONAL]</formato>
+               <valorDefeto>[OPCIONAL]</valorDefeto>
+               <ladoARellenar>[OPCIONAL]</ladoARellenar>
+               <longitud>[OPCIONAL] en caso de serializar no deserializar</longitud>
+               <posicion>[OPCIONAL] en caso de serializar no deserializar</posicion>
+           </ITEM>     
+      </ITEMS>
+     </SERIALIZER> 
+   </CONFIGURACION>
+</GRUPO>
+ --------------------Ejemplo Práctico-----------------------------------------
+ <?xml version="1.0" encoding="UTF-16"?>
+<GRUPO nombre="conf">
+  <CONFIGURACION nombre="configtierra">
+   <SERIALIZER xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/IKT.RecAplNet.General">
+     <longitudLinMin>633</longitudLinMin>
+     <longitudLinMax>633</longitudLinMax>
+     <maxNumLin>0</maxNumLin>
+     <caracterRelleno>@</caracterRelleno>
+      <ladoARellenar>derecha</ladoARellenar>
+      <valorDefeto/>
+      <serializarEspecificados>true</serializarEspecificados>
+      <separador/>
+     <ITEMS>
+        <ITEM>
+          <nombre>parcelagri</nombre>
+          <longitud>10</longitud>
+          <posicion>0</posicion>
+         <formato/>
+         <caracterRelleno> </caracterRelleno>
+         <ladoARellenar>derecha</ladoARellenar>
+       </ITEM>
+        <ITEM>
+         <nombre>cap</nombre>
+        <longitud>10</longitud>
+          <posicion>10</posicion>
+          <formato/>
+          <caracterRelleno> </caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+        <ITEM>
+         <nombre>zonazepa</nombre>
+        <longitud>10</longitud>
+         <posicion>20</posicion>
+         <formato/>
+         <caracterRelleno> </caracterRelleno>
+         <ladoARellenar>derecha</ladoARellenar>
+       </ITEM>
+       <ITEM>
+          <nombre>supjustides_e</nombre>
+          <longitud>10</longitud>
+         <posicion>30</posicion>
+         <formato/>
+         <caracterRelleno> </caracterRelleno>
+        <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+        <ITEM>
+          <nombre>codthsp</nombre>
+          <longitud>10</longitud>
+          <posicion>40</posicion>
+          <formato/>
+          <caracterRelleno> </caracterRelleno>
+         <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+       <ITEM>
+          <nombre>secregdes_c</nombre>
+          <longitud>10</longitud>
+         <posicion>50</posicion>
+         <formato/>
+          <caracterRelleno> </caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+        <ITEM>
+         <nombre>paraje</nombre>
+          <longitud>100</longitud>
+          <posicion>60</posicion>
+          <formato/>
+          <caracterRelleno> </caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+        <ITEM>
+          <nombre>thspdes</nombre>
+          <longitud>10</longitud>
+          <posicion>160</posicion>
+         <formato/>
+         <caracterRelleno> </caracterRelleno>
+         <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+       <ITEM>
+         <nombre>conmodfec</nombre>
+         <longitud>30</longitud>
+         <posicion>170</posicion>
+          <formato/>
+         <caracterRelleno> </caracterRelleno>
+         <ladoARellenar>derecha</ladoARellenar>
+       </ITEM>
+       <ITEM>
+         <nombre>croquis</nombre>
+         <longitud>10</longitud>
+         <posicion>200</posicion>
+         <formato/>
+        <caracterRelleno> </caracterRelleno>
+        <ladoARellenar>derecha</ladoARellenar>
+       </ITEM>
+       <ITEM>
+         <nombre>supcultivada</nombre>
+         <longitud>10</longitud>
+         <posicion>210</posicion>
+         <formato/>
+         <caracterRelleno> </caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+        <ITEM>
+          <nombre>codsupjustifi</nombre>
+          <longitud>10</longitud>
+          <posicion>220</posicion>
+          <formato/>
+         <caracterRelleno> </caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+        <ITEM>
+          <nombre>agregado</nombre>
+          <longitud>10</longitud>
+          <posicion>230</posicion>
+          <formato/>
+          <caracterRelleno> </caracterRelleno>
+         <ladoARellenar>derecha</ladoARellenar>
+       </ITEM>
+       <ITEM>
+         <nombre>tiposemdes_e</nombre>
+         <longitud>10</longitud>
+          <posicion>240</posicion>
+          <formato/>
+          <caracterRelleno> </caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+       </ITEM>
+        <ITEM>
+          <nombre>numarboles</nombre>
+          <longitud>10</longitud>
+          <posicion>250</posicion>
+          <formato>C5</formato>
+          <caracterRelleno> #</caracterRelleno>
+          <ladoARellenar>derecha</ladoARellenar>
+        </ITEM>
+      </ITEMS>
+    </SERIALIZER>
+  </CONFIGURACION>
+</GRUPO>
+ ]]>
+			</code>
+		</example>
+	</summary>
+	<param name="nomgrupo"></param>
+	<param name="nomserializer"></param>
+	<param name="txtConfigPath"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.General.txtSerializer.cargaConf(System.String)">
+	<summary>
+ Función que se utiliza para crear un serialzer especificado en el archivo de configuración 
+ </summary>
+	<param name="txtConfigPath"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.General.txtSerializer">
+	<summary>
+ Serialización y deserialización a texto plano.
+ <example>
+			<code>
+				<![CDATA[
+  Dim out As New IO.FileStream("C:\serializar.txt", IO.FileMode.Truncate)
+Dim configsol As New txtSerializer(1000, ladoRelleno.derecha, "@", "", True)
+Dim configtierrra As New txtSerializer(1000, ladoRelleno.derecha, "@", "", True)
+Dim configbanco As New txtSerializer(1000, ladoRelleno.derecha, "@", "", True)
+Dim configtitula As New txtSerializer(1000, ladoRelleno.derecha, "@", "", True)
+    configsol.preconfigurar(New TBSOL)
+    configtierrra.preconfigurar(New TBTIERRADEC())
+    configbanco.preconfigurar(New TBBANCO)
+    configtitula.preconfigurar(New TBTITULA)
+Dim solicitudes As ArrayList = BPM.obtenerListaEc(GetType(TBSOL))
+Dim ficstr As New StringBuilder()
+    For Each sol As TBSOL In solicitudes
+Dim solstr = configsol.serializar(sol)
+Dim tiestr = configtierrra.serializar(sol.tierradec)
+Dim banstr = configbanco.serializar(sol.banco)
+Dim titulastr = configtitula.serializar(sol.titula)
+        If solstr.Length > 0 Then
+            ficstr.AppendLine(solstr)
+        End If
+        If tiestr.Length > 0 Then
+            ficstr.AppendLine(tiestr)
+        End If
+        If banstr.Length > 0 Then
+            ficstr.AppendLine(banstr)
+        End If
+        If titulastr.Length > 0 Then
+            ficstr.AppendLine(titulastr)
+        End If
+    Next
+Dim bytes() As Byte = UTF32Encoding.UTF32.GetBytes(ficstr.ToString())
+    out.Write(bytes, 0, bytes.Count)
+    out.Flush()
+    out.Close()
+Dim reader As New StreamReader("C:\serializar.txt", UTF32Encoding.UTF32)
+Dim final = False
+Dim ret As New ArrayList
+    While Not final
+Dim solicis As List(Of iEntidad) = configsol.deserializar(GetType(TBSOL), reader, tipoParseo.primerErroneo)
+Dim tierras As List(Of iEntidad) = Nothing
+Dim bancos As List(Of iEntidad) = Nothing
+Dim titulares As List(Of iEntidad) = Nothing
+Dim sol As TBSOL = Nothing
+        final = configsol.final
+        If solicis.Count > 0 Then
+            sol = CType(solicis(0), TBSOL)
+        End If
+        If Not final Then
+            configtierrra.startLine = configsol.finishLine
+            tierras = configtierrra.deserializar(GetType(TBTIERRADEC), reader, tipoParseo.primerErroneo)
+            If Not tierras Is Nothing Then
+                For Each tierra As TBTIERRADEC In tierras
+                    sol.tierradec.Add(tierra)
+                Next
+            End If
+            final = configtierrra.final
+        End If
+        If Not final Then
+            configbanco.startLine = configtierrra.finishLine
+            bancos = configbanco.deserializar(GetType(TBBANCO), reader, tipoParseo.primerErroneo)
+            If Not bancos Is Nothing Then
+                For Each banco As TBBANCO In bancos
+                    sol.banco.Add(banco)
+                Next
+            End If
+            final = configbanco.final
+        End If
+        If Not final Then
+            configtitula.startLine = configbanco.finishLine
+            titulares = configtitula.deserializar(GetType(TBTITULA), reader, tipoParseo.primerErroneo)
+            If Not titulares Is Nothing Then
+                For Each titular As TBTITULA In titulares
+                    sol.titula.Add(titular)
+                Next
+            End If
+            final = configtitula.final
+        End If
+        If Not final Then
+            configsol.startLine = configtitula.finishLine
+        End If
+        If Not sol Is Nothing Then
+            ret.Add(sol)
+        End If
+    End While
+Dim dt As DataTable = BPM.obtenerListaDT(GetType(TBTIERRADEC))
+Dim ficDTstr As String = configtierrra.serializar(dt)
+Dim fileDT As New FileStream("C:\FileDT.txt", FileMode.OpenOrCreate)
+    bytes = UTF32Encoding.UTF8.GetBytes(ficDTstr)
+    fileDT.Write(bytes, 0, bytes.Length)
+    fileDT.Flush()
+    fileDT.Close()
+    fileDT.Dispose()
+    configtierrra.reset()
+Dim serializador As txtSerializer = txtSerializer.loadConf("grupo", "configtierra", "settingPath")
+Dim readerdt As New StreamReader("C:\FileDT.txt", UTF32Encoding.UTF8)
+Dim dt2 As DataTable = configtierrra.deserializar(readerdt, tipoParseo.estricto)
+ ]]>
+			</code>
+		</example>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:IKT.RecAplNet.Negocios.Negocio.obtenerGridBD(System.Int32,System.Int32,System.Object[])">
+	<summary>
+ Obtiene una página de una lista 
+ </summary>
+	<param name="pCurrentPage"></param>
+	<param name="pPageSize"></param>
+	<param name="lista"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:IKT.RecAplNet.Negocios.Negocio">
+	<summary>
+ Clase para mantener entidades del tipo iEntidad
+ </summary>
+	<example> En este ejemplo se implementa un negocio para el cual solo es necesario
+ sobreescribir el metodo guardar y agreagarObtener.Nótetese que se termina llamando al metodo MyBase.Guardar para guardar la entidad.
+ <code>
+ Public Class Negocio_T_CONTENEDORES
+  Inherits NegocioSirentra
+    Public Sub rellenaCodSirentra(ByRef ent As T_CONTENEDORES)
+        Dim dt As DataTable = BPM.obtenerListaDT(New T_TRANSPORTISTAS, New SQLWHERE("TR_CODIGOSIRENTRA", ent.co_tr_codigosirentra))
+        If Not dt Is Nothing AndAlso dt.Rows.Count &gt; 0 Then
+            ent.co_clavetransp = dt.Rows(0).Item("TR_CLAVE")
+            dt.Dispose()
+            dt = Nothing
+        End If
+    End Sub
+    Public Overrides Function agregarObtener(ByRef Entidad As IKT.RecAplNet.Entidades.iEntidad) As Boolean
+        Try
+            Dim ent As Entidades.T_CONTENEDORES = CType(Entidad, T_CONTENEDORES)
+            ent.co_clave = 0
+            rellenaCodSirentra(ent)
+            preEscribir(Entidad)
+            Dim ret As Boolean = MyBase.guardar(ent)
+            If Not ret Then
+                 If SessionIKT.ERRORESRECAPLNET_ON Then SessionIKT.setError(New ErroresIKT(29))
+                con.DeshacerTransaccion()
+                Return ret
+            End If
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("es-ES")
+            Dim resp As String = stubEscribir.UpdateContenedor(gestorProxys.Usuario, gestorProxys.ConUsu, ent.co_tr_codigosirentra, ent.co_cidm, ent.co_id, ent.co_marca, ent.co_modelo, ent.co_pma, ent.co_categoria, ent.co_longitud, _
+            ent.co_ancho, ent.co_numpisos, ent.co_aut8, If(ent.co_fechains Is Nothing, "", ent.co_fechains.Value.ToString("d")), ent.mt_sns, ent.mt_sct, ent.mt_decision, If(ent.co_fechaalta Is Nothing, "", ent.co_fechaalta.Value.ToString("d")), ent.ico_ano_validez, ent.ico_meses_validez, ent.ico_dias_validez, If(ent.co_fechabaja Is Nothing, "", ent.co_fechabaja.Value.ToString("d")), ent.co_obs)
+            If resp.StartsWith("0") Then
+                ent.co_cidm = Right(resp, 3)
+            End If
+            MyBase.guardar(ent)
+            Return postEscribir(resp)
+        Catch ex As Exception
+            If SessionIKT.ModoLog Then  If SessionIKT.ModoLog Then  SessionIKT.setlog(MyClass.ToString, New StackFrame().GetMethod().Name,ex.Mesage)
+             If SessionIKT.ERRORESRECAPLNET_ON Then SessionIKT.setError(New ErroresIKT(30))
+            Entidad = Nothing
+            con.DeshacerTransaccion()
+            Return False
+        End Try
+    End Function
+    Public Overrides Function guardar(ByVal Entidad As IKT.RecAplNet.Entidades.iEntidad) As Boolean
+        Try
+            Dim hdata As Hashtable = Entidad.hdata
+            preEscribir(Entidad, hdata)
+            Dim lista As ArrayList = MyBase.obtenerLista(New SQLWHERE("CO_ID", CType(Entidad, T_CONTENEDORES).co_id))
+            Dim ret As Boolean
+            Dim ent As Entidades.T_CONTENEDORES
+            If Not lista Is Nothing AndAlso lista.Count &gt; 0 Then
+                ent = lista(0)
+                Dim clave = ent.co_clave
+                ent.LoadHt(hdata)
+                ent.co_clave = clave
+                ret = MyBase.guardar(ent)
+            Else
+                ent = CType(Entidad, T_CONTENEDORES)
+                ent.co_clave = 0
+                rellenaCodSirentra(ent)
+                ret = MyBase.agregarObtener(ent)
+            End If
+            If Not ret Then
+                 If SessionIKT.ERRORESRECAPLNET_ON Then SessionIKT.setError(New ErroresIKT(29))
+                con.DeshacerTransaccion()
+                Return ret
+            End If
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("es-ES")
+            Dim resp As String = stubEscribir.UpdateContenedor(gestorProxys.Usuario, gestorProxys.ConUsu, ent.co_tr_codigosirentra, ent.co_cidm, ent.co_clave, ent.co_marca, ent.co_modelo, ent.co_pma, _
+            ent.co_categoria, ent.co_longitud, ent.co_ancho, ent.co_numpisos, ent.co_aut8, If(ent.co_fechains Is Nothing, "", ent.co_fechains.Value.ToString("d")), ent.mt_sns, ent.mt_sct, ent.mt_decision, If(ent.co_fechaalta Is Nothing, "", ent.co_fechaalta.Value.ToString("d")), ent.ico_ano_validez, ent.ico_meses_validez, _
+            ent.ico_dias_validez, If(ent.co_fechabaja Is Nothing, "", ent.co_fechabaja.Value.ToString("d")), ent.co_obs)
+            Return postEscribir(resp)
+        Catch ex As Exception
+            If SessionIKT.ModoLog Then  If SessionIKT.ModoLog Then  SessionIKT.setlog(MyClass.ToString, New StackFrame().GetMethod().Name, ex.Message)
+             If SessionIKT.ERRORESRECAPLNET_ON Then SessionIKT.setError(New ErroresIKT(30))
+            Entidad = Nothing
+            con.DeshacerTransaccion()
+            Return False
+        End Try
+    End Function
+End Class
+ </code>
+	</example>
+	<remarks>Solo se deben crear negocios extendiendo esta clase y si las particularidades de algún método lo requieren</remarks>
+</member><member name="M:IKT.RecAplNet.General.Banco.ValidaCuenta(System.String,System.String,System.String,System.String)">
+	<summary>
+ Validación de una cuenta bancaria española
+ </summary>
+	<param name="banco">Código del banco en formato "0000"</param>
+	<param name="oficina">Código de la sucursal en formato "0000"</param>
+	<param name="dc">Dígito de control en formato "00"</param>
+	<param name="cuenta">Número de cuenta en formato "0000000000"</param>
+	<returns>true si el número de cuenta es correcto</returns>
+</member><member name="M:IKT.RecAplNet.General.Banco.ValidaCuenta(System.String)">
+	<summary>
+ Validación de una cuenta bancaria española
+ </summary>
+	<param name="cuentaCompleta">Número de cuenta completa con carácteres numéricos y 20 dígitos</param>
+	<returns>true si el número de cuenta es correcto</returns>
+</member><member name="M:IKT.RecAplNet.General.Banco.ValidaCuenta(System.UInt64,System.UInt64,System.UInt64,System.UInt64)">
+	<summary>
+ Validación de una cuenta bancaria española
+ </summary>
+	<param name="banco">Código del banco</param>
+	<param name="oficina">Código de la oficina</param>
+	<param name="dc">Dígito de control</param>
+	<param name="cuenta">Número de cuenta</param>
+	<returns>true si el número de cuenta es correcto</returns>
+</member><member name="M:IKT.RecAplNet.General.Banco.IsNumeric(System.String)">
+	<summary>
+ Comprueba que la cadena sólo incluya números
+ </summary>
+	<param name="numero">Cadena de texto en formato número</param>
+	<returns>true si <paramref name="numero"/> contiene sólo números</returns>
+	<remarks>No se contemplan decimales</remarks>
+</member><member name="M:IKT.RecAplNet.General.Banco.CompruebaCuenta(System.String,System.String,System.String,System.String)">
+	<summary>
+ Una cuenta bancaria está validada si los dígitos de control calculados coinciden con los
+ que se han pasado en los argumentos
+ </summary>
+</member><member name="M:IKT.RecAplNet.General.Banco.GetDigitoControl(System.String)">
+	<summary>
+ Obtiene el dígito de control de una cuenta bancaria. La función sólo devuelve un número
+ que corresponderá a una de las dos opciones.
+     - Codigo + CódigoOficina
+     - CuentaBancaria
+ </summary>
+</member><member name="T:IKT.RecAplNet.General.Banco">
+	<summary>
+ Servicios de validación de las cuentas bancarias españolas
+ </summary>
+</member><member name="P:IKT.RecAplNet.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:IKT.RecAplNet.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:IKT.RecAplNet.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQGridItem.Row">
+	<summary>
+ Fila del JQGrid.
+ </summary>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQGridItem.#ctor">
+	<summary>
+ Contructor.
+ </summary>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQGridItem">
+	<summary>
+ Item del JQGrid. Elemento de la propiedad Items de la clase JsonJQGridResponse.
+ </summary>
+</member><member name="T:IKT.RecAplNet.Daos.ICMBHAZI">
+	<summary>
+ Esta interfaz especifica todas las funcionalidades que debe implementar un CMB para que un dao pueda 
+ mantener una entidad.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:IKT.RecAplNet.VistaWeb.JQComboItem.label">
+	<summary>
+ Fila del JQSubGrid.
+ </summary>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQComboItem.#ctor">
+	<summary>
+ Contructor.
+ </summary>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQComboItem">
+	<summary>
+ Item del JQGrid. Elemento de la propiedad Items de la clase JsonJQGridResponse.
+ </summary>
+</member><member name="M:IKT.RecAplNet.VistaWeb.JQTreeItem.#ctor">
+	<summary>
+ Contructor.
+ </summary>
+</member><member name="T:IKT.RecAplNet.VistaWeb.JQTreeItem">
+	<summary>
+ ''' Item del JQGrid. Elemento de la propiedad Items de la clase JsonJQGridResponse.
+ </summary>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

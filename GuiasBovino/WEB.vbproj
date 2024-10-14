@@ -1,0 +1,793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3EF65C2F-DEA4-4AED-BB27-BB1CADB0BDF8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WEB</RootNamespace>
+    <AssemblyName>WEB</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WEB.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WEB.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="IKT.RecAplNet.Daos" />
+    <Import Include="IKT.RecAplNet.Entidades" />
+    <Import Include="IKT.RecAplNet.General" />
+    <Import Include="IKT.RecAplNet.Negocios" />
+    <Import Include="IKT.RecAplNet.VistaWeb" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ping.aspx.designer.vb">
+      <DependentUpon>ping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ping.aspx.vb">
+      <DependentUpon>ping.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\busqueda_crotal.aspx.designer.vb">
+      <DependentUpon>busqueda_crotal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\busqueda_crotal.aspx.vb">
+      <DependentUpon>busqueda_crotal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\documentaciones.aspx.designer.vb">
+      <DependentUpon>documentaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\documentaciones.aspx.vb">
+      <DependentUpon>documentaciones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\seguimiento_san_vac.aspx.designer.vb">
+      <DependentUpon>seguimiento_san_vac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\seguimiento_san_vac.aspx.vb">
+      <DependentUpon>seguimiento_san_vac.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\listado_saneamientos.aspx.designer.vb">
+      <DependentUpon>listado_saneamientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\listado_saneamientos.aspx.vb">
+      <DependentUpon>listado_saneamientos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\montesautorizados.aspx.designer.vb">
+      <DependentUpon>montesautorizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\montesautorizados.aspx.vb">
+      <DependentUpon>montesautorizados.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ica2.aspx.designer.vb">
+      <DependentUpon>ica2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ica2.aspx.vb">
+      <DependentUpon>ica2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ica1.aspx.designer.vb">
+      <DependentUpon>ica1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ica1.aspx.vb">
+      <DependentUpon>ica1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\alta1.aspx.designer.vb">
+      <DependentUpon>alta1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\alta1.aspx.vb">
+      <DependentUpon>alta1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\alta2.aspx.designer.vb">
+      <DependentUpon>alta2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\alta2.aspx.vb">
+      <DependentUpon>alta2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\alta3.aspx.designer.vb">
+      <DependentUpon>alta3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\alta3.aspx.vb">
+      <DependentUpon>alta3.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\altas_entre_fechas.aspx.designer.vb">
+      <DependentUpon>altas_entre_fechas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\altas_entre_fechas.aspx.vb">
+      <DependentUpon>altas_entre_fechas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\alta_fin.aspx.designer.vb">
+      <DependentUpon>alta_fin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\alta_fin.aspx.vb">
+      <DependentUpon>alta_fin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\asociaciones.aspx.designer.vb">
+      <DependentUpon>asociaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\asociaciones.aspx.vb">
+      <DependentUpon>asociaciones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\bajas_entre_fechas.aspx.designer.vb">
+      <DependentUpon>bajas_entre_fechas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\bajas_entre_fechas.aspx.vb">
+      <DependentUpon>bajas_entre_fechas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\calificacion.aspx.designer.vb">
+      <DependentUpon>calificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\calificacion.aspx.vb">
+      <DependentUpon>calificacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\cambio.aspx.designer.vb">
+      <DependentUpon>cambio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\cambio.aspx.vb">
+      <DependentUpon>cambio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\censo.aspx.designer.vb">
+      <DependentUpon>censo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\censo.aspx.vb">
+      <DependentUpon>censo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\censo_fecha.aspx.designer.vb">
+      <DependentUpon>censo_fecha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\censo_fecha.aspx.vb">
+      <DependentUpon>censo_fecha.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\confirmacion_de_guias.aspx.designer.vb">
+      <DependentUpon>confirmacion_de_guias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\confirmacion_de_guias.aspx.vb">
+      <DependentUpon>confirmacion_de_guias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\confirma_guia_entrada.aspx.designer.vb">
+      <DependentUpon>confirma_guia_entrada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\confirma_guia_entrada.aspx.vb">
+      <DependentUpon>confirma_guia_entrada.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\consulta.aspx.designer.vb">
+      <DependentUpon>consulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\consulta.aspx.vb">
+      <DependentUpon>consulta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\contacto.aspx.designer.vb">
+      <DependentUpon>contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\contacto.aspx.vb">
+      <DependentUpon>contacto.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\crotales_disponibles.aspx.designer.vb">
+      <DependentUpon>crotales_disponibles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\crotales_disponibles.aspx.vb">
+      <DependentUpon>crotales_disponibles.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\error.aspx.designer.vb">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\error.aspx.vb">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\explotacion.aspx.designer.vb">
+      <DependentUpon>explotacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\explotacion.aspx.vb">
+      <DependentUpon>explotacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\footer.aspx.designer.vb">
+      <DependentUpon>footer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\footer.aspx.vb">
+      <DependentUpon>footer.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\header_sidebar.aspx.designer.vb">
+      <DependentUpon>header_sidebar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\header_sidebar.aspx.vb">
+      <DependentUpon>header_sidebar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\index.aspx.designer.vb">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\index.aspx.vb">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\inicio.aspx.designer.vb">
+      <DependentUpon>inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\inicio.aspx.vb">
+      <DependentUpon>inicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\listado_muertes.aspx.designer.vb">
+      <DependentUpon>listado_muertes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\listado_muertes.aspx.vb">
+      <DependentUpon>listado_muertes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\listado_de_nacimientos.aspx.designer.vb">
+      <DependentUpon>listado_de_nacimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\listado_de_nacimientos.aspx.vb">
+      <DependentUpon>listado_de_nacimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\notificaciones.aspx.designer.vb">
+      <DependentUpon>notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\notificaciones.aspx.vb">
+      <DependentUpon>notificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\notificar_muerte.aspx.designer.vb">
+      <DependentUpon>notificar_muerte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\notificar_muerte.aspx.vb">
+      <DependentUpon>notificar_muerte.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\notificar_nacimiento.aspx.designer.vb">
+      <DependentUpon>notificar_nacimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\notificar_nacimiento.aspx.vb">
+      <DependentUpon>notificar_nacimiento.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\notificar_fecha_colocacion.aspx.designer.vb">
+      <DependentUpon>notificar_fecha_colocacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\notificar_fecha_colocacion.aspx.vb">
+      <DependentUpon>notificar_fecha_colocacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\notificar_perdida_asignada.aspx.designer.vb">
+      <DependentUpon>notificar_perdida_asignada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\notificar_perdida_asignada.aspx.vb">
+      <DependentUpon>notificar_perdida_asignada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\notificar_perdida_sin_asignar.aspx.designer.vb">
+      <DependentUpon>notificar_perdida_sin_asignar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\notificar_perdida_sin_asignar.aspx.vb">
+      <DependentUpon>notificar_perdida_sin_asignar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Plantillas\CustomPage.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\relacion_de_series.aspx.designer.vb">
+      <DependentUpon>relacion_de_series.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\relacion_de_series.aspx.vb">
+      <DependentUpon>relacion_de_series.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\registro.aspx.designer.vb">
+      <DependentUpon>registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\registro.aspx.vb">
+      <DependentUpon>registro.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\relacion_de_solicitudes.aspx.designer.vb">
+      <DependentUpon>relacion_de_solicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\relacion_de_solicitudes.aspx.vb">
+      <DependentUpon>relacion_de_solicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\solicitud_crotales.aspx.designer.vb">
+      <DependentUpon>solicitud_crotales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\solicitud_crotales.aspx.vb">
+      <DependentUpon>solicitud_crotales.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\solicitud_permiso.aspx.designer.vb">
+      <DependentUpon>solicitud_permiso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\solicitud_permiso.aspx.vb">
+      <DependentUpon>solicitud_permiso.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\solicitud_permiso_denegada.aspx.designer.vb">
+      <DependentUpon>solicitud_permiso_denegada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\solicitud_permiso_denegada.aspx.vb">
+      <DependentUpon>solicitud_permiso_denegada.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\solicitud_permiso_en_tramite.aspx.designer.vb">
+      <DependentUpon>solicitud_permiso_en_tramite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\solicitud_permiso_en_tramite.aspx.vb">
+      <DependentUpon>solicitud_permiso_en_tramite.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\titulares.aspx.designer.vb">
+      <DependentUpon>titulares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\titulares.aspx.vb">
+      <DependentUpon>titulares.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\tramites.aspx.designer.vb">
+      <DependentUpon>tramites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\tramites.aspx.vb">
+      <DependentUpon>tramites.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Vista\login.aspx.designer.vb">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\login.aspx.vb">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LLAMADAS.TXT" />
+    <Content Include="ping.aspx" />
+    <Content Include="Vista\busqueda_crotal.aspx" />
+    <Content Include="Vista\JS_CSS\documentaciones\documentaciones.js" />
+    <Content Include="Vista\JS_CSS\seguimiento_san_vac\seguimiento_san_vac.js" />
+    <Content Include="Vista\documentaciones.aspx" />
+    <Content Include="Vista\seguimiento_san_vac.aspx" />
+    <Content Include="Vista\JS_CSS\listado_saneamientos\listado_saneamientos.js" />
+    <Content Include="Vista\listado_saneamientos.aspx" />
+    <Content Include="Vista\JS_CSS\montesautorizados\montesautorizados.js" />
+    <Content Include="Vista\montesautorizados.aspx" />
+    <Content Include="Vista\ica2.aspx" />
+    <Content Include="Vista\ica1.aspx" />
+    <Content Include="Vista\alta1.aspx" />
+    <Content Include="Vista\alta2.aspx" />
+    <Content Include="Vista\alta3.aspx" />
+    <Content Include="Vista\altas_entre_fechas.aspx" />
+    <Content Include="Vista\alta_fin.aspx" />
+    <Content Include="Vista\asociaciones.aspx" />
+    <Content Include="Vista\bajas_entre_fechas.aspx" />
+    <Content Include="Vista\calificacion.aspx" />
+    <Content Include="Vista\cambio.aspx" />
+    <Content Include="Vista\censo.aspx" />
+    <Content Include="Vista\censo_fecha.aspx" />
+    <Content Include="Vista\confirmacion_de_guias.aspx" />
+    <Content Include="Vista\confirma_guia_entrada.aspx" />
+    <Content Include="Vista\consulta.aspx" />
+    <Content Include="Vista\contacto.aspx" />
+    <Content Include="Vista\crotales_disponibles.aspx" />
+    <Content Include="Vista\css\estilos.css" />
+    <Content Include="Vista\css\estilos_privada.css" />
+    <Content Include="Vista\css\estilos_login.css" />
+    <Content Include="Vista\css\font-awesome.min.css" />
+    <Content Include="Vista\css\fonts.css" />
+    <Content Include="Vista\error.aspx" />
+    <Content Include="Vista\explotacion.aspx" />
+    <Content Include="Vista\fonts\DroidSans-Bold-webfont.svg" />
+    <Content Include="Vista\fonts\DroidSans-webfont.svg" />
+    <Content Include="Vista\fonts\fontawesome-webfont.svg" />
+    <Content Include="Vista\footer.aspx" />
+    <Content Include="Vista\header_sidebar.aspx" />
+    <Content Include="Vista\img\agarre.jpg" />
+    <Content Include="Vista\img\arrow-right.png" />
+    <Content Include="Vista\img\avatar.png" />
+    <Content Include="Vista\img\avatar04.png" />
+    <Content Include="Vista\img\avatar2.png" />
+    <Content Include="Vista\img\avatar3.png" />
+    <Content Include="Vista\img\avatar5.png" />
+    <Content Include="Vista\img\banner_app.jpg" />
+    <Content Include="Vista\img\behia.jpg" />
+    <Content Include="Vista\img\behia.png" />
+    <Content Include="Vista\img\boxed-bg.jpg" />
+    <Content Include="Vista\img\boxed-bg.png" />
+    <Content Include="Vista\img\calendario.png" />
+    <Content Include="Vista\img\column_collapse.png" />
+    <Content Include="Vista\img\column_expand.png" />
+    <Content Include="Vista\img\default-50x50.gif" />
+    <Content Include="Vista\img\enconstruccion.png" />
+    <Content Include="Vista\img\endoia.jpg" />
+    <Content Include="Vista\img\exp_chan.png" />
+    <Content Include="Vista\img\exp_tab.png" />
+    <Content Include="Vista\img\flecha_destacada.png" />
+    <Content Include="Vista\img\flecha_migas.png" />
+    <Content Include="Vista\img\flecha_tramites.png" />
+    <Content Include="Vista\img\flecha_volver.png" />
+    <Content Include="Vista\img\fondo_cabecera.png" />
+    <Content Include="Vista\img\foto1.png" />
+    <Content Include="Vista\img\ganado.jpg" />
+    <Content Include="Vista\img\icon-check.png" />
+    <Content Include="Vista\img\icons.png" />
+    <Content Include="Vista\img\ico_perdida.png" />
+    <Content Include="Vista\img\img_autocrotalacion.png" />
+    <Content Include="Vista\img\imprimir.png" />
+    <Content Include="Vista\img\loading.gif" />
+    <Content Include="Vista\img\lock_small.png" />
+    <Content Include="Vista\img\logo_gipuzkoa_orain.png" />
+    <Content Include="Vista\img\logo_gv.png" />
+    <Content Include="Vista\img\logo_gv_cir.png" />
+    <Content Include="Vista\img\logo_nekagip.png" />
+    <Content Include="Vista\img\logo_nekagip_mini.png" />
+    <Content Include="Vista\img\logo_nekagip_mini_priv.png" />
+    <Content Include="Vista\img\mundo.png" />
+    <Content Include="Vista\img\notif-detail-bg.png" />
+    <Content Include="Vista\img\notif_new.png" />
+    <Content Include="Vista\img\notif_opened.png" />
+    <Content Include="Vista\img\paisaje-pan.png" />
+    <Content Include="Vista\img\paisaje.jpg" />
+    <Content Include="Vista\img\paisaje_pan.jpg" />
+    <Content Include="Vista\img\panopenasaia2.jpg" />
+    <Content Include="Vista\img\photo1.png" />
+    <Content Include="Vista\img\photo2.png" />
+    <Content Include="Vista\img\photo3.jpg" />
+    <Content Include="Vista\img\photo4.jpg" />
+    <Content Include="Vista\img\plus.png" />
+    <Content Include="Vista\img\salir.png" />
+    <Content Include="Vista\img\sanmarcial.jpg" />
+    <Content Include="Vista\img\ul_asterisk.png" />
+    <Content Include="Vista\img\user1-128x128.jpg" />
+    <Content Include="Vista\img\user2-160x160.htm" />
+    <Content Include="Vista\img\user2-160x160.jpg" />
+    <Content Include="Vista\img\user2-160x160.png" />
+    <Content Include="Vista\img\user3-128x128.jpg" />
+    <Content Include="Vista\img\user4-128x128.jpg" />
+    <Content Include="Vista\img\user5-128x128.jpg" />
+    <Content Include="Vista\img\user6-128x128.jpg" />
+    <Content Include="Vista\img\user7-128x128.jpg" />
+    <Content Include="Vista\img\user8-128x128.jpg" />
+    <Content Include="Vista\img\user_nekagip.png" />
+    <Content Include="Vista\img\volver.png" />
+    <Content Include="Vista\includes\autoNumeric-min.js" />
+    <Content Include="Vista\includes\autoNumeric.js" />
+    <Content Include="Vista\includes\datetimepicker\build\css\bootstrap-datetimepicker.css" />
+    <Content Include="Vista\includes\datetimepicker\build\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Vista\includes\datetimepicker\build\js\bootstrap-datetimepicker.es.js" />
+    <Content Include="Vista\includes\datetimepicker\build\js\bootstrap-datetimepicker.eu.js" />
+    <Content Include="Vista\includes\datetimepicker\build\js\bootstrap-datetimepicker.js" />
+    <Content Include="Vista\includes\datetimepicker\build\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Vista\includes\hazi.google.recaptcha.js" />
+    <Content Include="Vista\includes\jq.energy.js" />
+    <Content Include="Vista\includes\sessionMonitor.js" />
+    <Content Include="Vista\index.aspx" />
+    <Content Include="Vista\inicio.aspx" />
+    <Content Include="Vista\JS_CSS\additional-methods.min.js" />
+    <Content Include="Vista\JS_CSS\busqueda_crotal\busqueda_crotal.js" />
+    <Content Include="Vista\JS_CSS\ica1\ica1.js" />
+    <Content Include="Vista\JS_CSS\altas_entre_fechas\altas_entre_fechas.js" />
+    <Content Include="Vista\JS_CSS\alta_fin\alta_fin.js" />
+    <Content Include="Vista\JS_CSS\alta3\alta3.js" />
+    <Content Include="Vista\JS_CSS\alta2\alta2.js" />
+    <Content Include="Vista\JS_CSS\asociaciones\asociaciones.js" />
+    <Content Include="Vista\JS_CSS\bajas_entre_fechas\bajas_entre_fechas.js" />
+    <Content Include="Vista\JS_CSS\calificacion\calificacion.js" />
+    <Content Include="Vista\JS_CSS\alta1\alta1.js" />
+    <Content Include="Vista\JS_CSS\confirmacion_de_guias\confirmacion_de_guias.js" />
+    <Content Include="Vista\JS_CSS\confirma_guia_entrada\confirma_guia_entrada.js" />
+    <Content Include="Vista\JS_CSS\consulta\consulta.js" />
+    <Content Include="Vista\JS_CSS\crotales_disponibles\crotales_disponibles.js" />
+    <Content Include="Vista\JS_CSS\datetime-moment.js" />
+    <Content Include="Vista\JS_CSS\ica2\ica2.js" />
+    <Content Include="Vista\JS_CSS\index\index.js" />
+    <Content Include="Vista\JS_CSS\cambio\cambio.js" />
+    <Content Include="Vista\JS_CSS\censo\censo.js" />
+    <Content Include="Vista\JS_CSS\censo_fecha\censo_fecha.js" />
+    <Content Include="Vista\JS_CSS\Common.js" />
+    <Content Include="Vista\JS_CSS\daterangepicker.css" />
+    <Content Include="Vista\JS_CSS\dispotivos.css" />
+    <Content Include="Vista\JS_CSS\inicio\inicio.js" />
+    <Content Include="Vista\JS_CSS\jquery-2.2.3.min.js" />
+    <Content Include="Vista\JS_CSS\jquery.validate.min.js" />
+    <Content Include="Vista\JS_CSS\listado_de_muertes\listado_de_muertes.js" />
+    <Content Include="Vista\JS_CSS\listado_de_nacimientos\listado_de_nacimientos.js" />
+    <Content Include="Vista\JS_CSS\login\login.js" />
+    <Content Include="Vista\JS_CSS\moment.min.js" />
+    <Content Include="Vista\JS_CSS\notificaciones\notificaciones.js" />
+    <Content Include="Vista\JS_CSS\notificar_muerte\notificar_muerte.js" />
+    <Content Include="Vista\JS_CSS\notificar_fecha_colocacion\notificar_fecha_colocacion.js" />
+    <Content Include="Vista\JS_CSS\notificar_perdida_asignada\notificar_perdida_asignada.js" />
+    <Content Include="Vista\JS_CSS\notificar_perdida_sin_asignar\notificar_perdida_sin_asignar.js" />
+    <Content Include="Vista\JS_CSS\raphael-min.js" />
+    <Content Include="Vista\JS_CSS\relacion_de_series\relacion_de_series.js" />
+    <Content Include="Vista\JS_CSS\registro\registro.js" />
+    <Content Include="Vista\JS_CSS\relacion_solicitudes\relacion_solicitudes.js" />
+    <Content Include="Vista\JS_CSS\solicitud_crotales\solicitud_crotales.js" />
+    <Content Include="Vista\JS_CSS\solicitud_permiso\solicitud_permiso.js" />
+    <Content Include="Vista\JS_CSS\solicitud_permiso_denegada\solicitud_permiso_denegada.js" />
+    <Content Include="Vista\JS_CSS\solicitud_permiso_en_tramite\solicitud_permiso_en_tramite.js" />
+    <Content Include="Vista\JS_CSS\titulares\titulares.js" />
+    <Content Include="Vista\JS_CSS\tramites\tramites.js" />
+    <Content Include="Vista\JS_CSS\typeahead.bundle.js" />
+    <Content Include="Vista\JS_CSS\validaciones.js" />
+    <Content Include="Vista\listado_muertes.aspx" />
+    <Content Include="Vista\listado_de_nacimientos.aspx" />
+    <Content Include="Vista\notificaciones.aspx" />
+    <Content Include="Vista\notificar_muerte.aspx" />
+    <Content Include="Vista\notificar_nacimiento.aspx" />
+    <Content Include="Vista\JS_CSS\notificar_nacimiento\notificar_nacimiento.js" />
+    <Content Include="Vista\notificar_fecha_colocacion.aspx" />
+    <Content Include="Vista\notificar_perdida_asignada.aspx" />
+    <Content Include="Vista\notificar_perdida_sin_asignar.aspx" />
+    <Content Include="Vista\relacion_de_series.aspx" />
+    <Content Include="Vista\registro.aspx" />
+    <Content Include="Vista\relacion_de_solicitudes.aspx" />
+    <Content Include="Vista\solicitud_crotales.aspx" />
+    <Content Include="Vista\solicitud_permiso.aspx" />
+    <Content Include="Vista\solicitud_permiso_denegada.aspx" />
+    <Content Include="Vista\solicitud_permiso_en_tramite.aspx" />
+    <Content Include="Vista\titulares.aspx" />
+    <Content Include="Vista\tramites.aspx" />
+    <Content Include="Vista\login.aspx" />
+    <None Include="APP.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="APPConnection.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\PublishProfiles\Ayudas_II.pubxml" />
+    <Content Include="SQL.CONFIG">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Vista\img\fondoEVE.png" />
+    <Content Include="Vista\img\fondo_azul.jpg" />
+    <Content Include="Vista\img\GobVasco.jpg" />
+    <Content Include="Vista\includes\fileinput\css\fileinput.css" />
+    <Content Include="Vista\includes\fileinput\css\fileinput.min.css" />
+    <Content Include="Vista\includes\fileinput\img\loading-sm.gif" />
+    <Content Include="Vista\includes\fileinput\img\loading.gif" />
+    <Content Include="Vista\includes\fileinput\js\fileinput.js" />
+    <Content Include="Vista\includes\fileinput\js\fileinput.min.js" />
+    <Content Include="Vista\includes\fileinput\js\fileinput_locale_es.js" />
+    <Content Include="Vista\includes\fileinput\js\fileinput_locale_eu.js" />
+    <Content Include="Vista\includes\fileinput\js\fileinput_locale_LANG.js" />
+    <Content Include="Vista\includes\fileinput\js\plugins\canvas-to-blob.js" />
+    <Content Include="Vista\includes\fileinput\js\plugins\canvas-to-blob.min.js" />
+    <Content Include="Vista\includes\jquery-sortable.js" />
+    <Content Include="Vista\includes\moment-es.js" />
+    <Content Include="Vista\includes\moment-eu.js" />
+    <Content Include="Vista\includes\moment-timezone-with-data.min.js" />
+    <Content Include="Vista\includes\moment-with-locales.min.js" />
+    <Content Include="Vista\includes\moment.min.js" />
+    <Content Include="Vista\img\flecha_volver.fxg" />
+    <Content Include="Vista\fonts\DroidSans-Bold-webfont.eot" />
+    <Content Include="Vista\fonts\DroidSans-Bold-webfont.ttf" />
+    <Content Include="Vista\fonts\DroidSans-Bold-webfont.woff" />
+    <Content Include="Vista\fonts\DroidSans-webfont.eot" />
+    <Content Include="Vista\fonts\DroidSans-webfont.ttf" />
+    <Content Include="Vista\fonts\DroidSans-webfont.woff" />
+    <Content Include="Vista\fonts\raleway-extrabold-webfont.woff" />
+    <Content Include="Vista\fonts\raleway-extrabold-webfont.woff2" />
+    <Content Include="Vista\fonts\raleway-regular-webfont.woff" />
+    <Content Include="Vista\fonts\raleway-regular-webfont.woff2" />
+    <Content Include="Vista\fonts\texgyreadventor-regular-webfont.woff" />
+    <Content Include="Vista\fonts\texgyreadventor-regular-webfont.woff2" />
+    <Content Include="Vista\fonts\fontawesome-webfont.eot" />
+    <Content Include="Vista\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Vista\fonts\fontawesome-webfont.woff" />
+    <Content Include="Vista\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Vista\fonts\FontAwesome.otf" />
+    <Content Include="Vista\JS_CSS\datatables_language\Basque.json" />
+    <Content Include="Vista\JS_CSS\datatables_language\Spanish.json" />
+    <None Include="web.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Vista\img\ajax-loader.gif" />
+    <Content Include="Vista\img\logo.png" />
+    <Content Include="Vista\img\max_loading.GIF" />
+    <Content Include="Vista\img\mini_loading.gif" />
+    <Content Include="Vista\JS_CSS\JQLibre.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Vista\ashxs\" />
+    <Folder Include="Vista\img\credit\" />
+    <Folder Include="Vista\img\_notes\" />
+    <Folder Include="Vista\JS_CSS\jquery-number-2.1.6\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PortalNekagip\NEKAGIP\NEKAGIP.vbproj">
+      <Project>{453cdd55-404b-4829-8101-6aba7565f4d5}</Project>
+      <Name>NEKAGIP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:55/default.aspx?IDIOMA=0&amp;CONUSUCOD=34093261Q&amp;nif=34093261Q" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
