@@ -1,0 +1,10 @@
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\bin\Release\NEKAGIP.dll
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\bin\Release\NEKAGIP.pdb
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\bin\Release\NEKAGIP.xml
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.vbprojAssemblyReference.cache
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.Resources.resources
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.vbproj.GenerateResource.cache
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.vbproj.CoreCompileInputs.cache
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.dll
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.xml
+C:\AplNet\PROYECTOS\PortalNekagip\NEKAGIP\obj\Release\NEKAGIP.pdb

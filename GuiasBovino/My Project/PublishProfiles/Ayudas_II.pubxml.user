@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\u0899met\Documents\publicar</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/NEKAGIP.dll">
+      <publishTime>02/09/2024 13:59:02</publishTime>
+    </File>
+    <File Include="bin/NEKAGIP.pdb">
+      <publishTime>02/09/2024 13:59:02</publishTime>
+    </File>
+    <File Include="bin/WEB.dll">
+      <publishTime>02/09/2024 13:59:02</publishTime>
+    </File>
+    <File Include="bin/WEB.pdb">
+      <publishTime>02/09/2024 13:59:02</publishTime>
+    </File>
+    <File Include="bin/WEB.xml">
+      <publishTime>02/09/2024 13:59:02</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>05/09/2023 11:17:49</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/09/2023 11:17:49</publishTime>
+    </File>
+    <File Include="LLAMADAS.TXT">
+      <publishTime>05/09/2023 11:17:49</publishTime>
+    </File>
+    <File Include="ping.aspx">
+      <publishTime>05/09/2023 11:17:49</publishTime>
+    </File>
+    <File Include="SQL.CONFIG">
+      <publishTime>05/09/2023 11:17:49</publishTime>
+    </File>
+    <File Include="Vista/alta1.aspx">
+      <publishTime>01/16/2024 12:47:50</publishTime>
+    </File>
+    <File Include="Vista/alta2.aspx">
+      <publishTime>11/07/2023 14:20:27</publishTime>
+    </File>
+    <File Include="Vista/alta2_pastos.aspx">
+      <publishTime>04/06/2020 13:26:30</publishTime>
+    </File>
+    <File Include="Vista/alta3.aspx">
+      <publishTime>09/13/2023 12:10:30</publishTime>
+    </File>
+    <File Include="Vista/alta3_pastos.aspx">
+      <publishTime>04/06/2020 13:26:30</publishTime>
+    </File>
+    <File Include="Vista/altas_entre_fechas.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/alta_fin.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/alta_fin_pastos.aspx">
+      <publishTime>04/06/2020 13:26:31</publishTime>
+    </File>
+    <File Include="Vista/asociaciones.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/bajas_entre_fechas.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/busqueda_crotal.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/calificacion.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/cambio.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/censo.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/censo_fecha.aspx">
+      <publishTime>09/06/2023 16:08:04</publishTime>
+    </File>
+    <File Include="Vista/confirmacion_de_guias.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/confirma_guia_entrada.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/consulta.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/contacto.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/crotales_disponibles.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/css/estilos.css">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/css/estilos_login.css">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/css/estilos_privada.css">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/css/font-awesome.min.css">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/css/fonts.css">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/documentaciones.aspx">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/error.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/explotacion.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-Bold-webfont.eot">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-Bold-webfont.svg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-Bold-webfont.ttf">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-Bold-webfont.woff">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-webfont.eot">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-webfont.svg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-webfont.ttf">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/DroidSans-webfont.woff">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/fontawesome-webfont.eot">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/fonts/fontawesome-webfont.svg">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/fontawesome-webfont.ttf">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/fonts/fontawesome-webfont.woff">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/fonts/fontawesome-webfont.woff2">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/FontAwesome.otf">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/fonts/raleway-extrabold-webfont.woff">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/raleway-extrabold-webfont.woff2">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/raleway-regular-webfont.woff">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/raleway-regular-webfont.woff2">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/texgyreadventor-regular-webfont.woff">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/fonts/texgyreadventor-regular-webfont.woff2">
+      <publishTime>05/09/2023 11:17:40</publishTime>
+    </File>
+    <File Include="Vista/footer.aspx">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/header_sidebar.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/ica1.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/ica2.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/img/agarre.jpg">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/ajax-loader.gif">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/arrow-right.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/avatar.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/avatar04.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/avatar2.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/avatar3.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/avatar5.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/banner_app.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/behia.jpg">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/behia.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/boxed-bg.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/boxed-bg.png">
+      <publishTime>05/09/2023 11:17:36</publishTime>
+    </File>
+    <File Include="Vista/img/calendario.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/column_collapse.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/column_expand.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/default-50x50.gif">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/enconstruccion.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/endoia.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/exp_chan.png">
+      <publishTime>05/09/2023 11:17:36</publishTime>
+    </File>
+    <File Include="Vista/img/exp_tab.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/flecha_destacada.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/flecha_migas.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/flecha_tramites.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/flecha_volver.fxg">
+      <publishTime>05/09/2023 11:17:36</publishTime>
+    </File>
+    <File Include="Vista/img/flecha_volver.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/fondoEVE.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/fondo_azul.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/fondo_cabecera.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/foto1.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/ganado.jpg">
+      <publishTime>05/09/2023 11:17:36</publishTime>
+    </File>
+    <File Include="Vista/img/GobVasco.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/icon-check.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/icons.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/ico_perdida.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/img_autocrotalacion.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/imprimir.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/loading.gif">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/lock_small.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/logo.png">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/img/logo_gipuzkoa_orain.png">
+      <publishTime>05/09/2023 11:17:36</publishTime>
+    </File>
+    <File Include="Vista/img/logo_gv.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/logo_gv_cir.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/logo_nekagip.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/logo_nekagip_mini.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/logo_nekagip_mini_priv.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/max_loading.GIF">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/mini_loading.gif">
+      <publishTime>05/09/2023 11:17:38</publishTime>
+    </File>
+    <File Include="Vista/img/mundo.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/notif-detail-bg.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/notif_new.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/notif_opened.png">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/img/paisaje-pan.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/paisaje.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/paisaje_pan.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/panopenasaia2.jpg">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/photo1.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/photo2.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/photo3.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/photo4.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/plus.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/salir.png">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/sanmarcial.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/ul_asterisk.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/user1-128x128.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/user2-160x160.htm">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/user2-160x160.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/user2-160x160.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/user3-128x128.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/user4-128x128.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/user5-128x128.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/user6-128x128.jpg">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/img/user7-128x128.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/user8-128x128.jpg">
+      <publishTime>05/09/2023 11:17:37</publishTime>
+    </File>
+    <File Include="Vista/img/user_nekagip.png">
+      <publishTime>05/09/2023 11:17:31</publishTime>
+    </File>
+    <File Include="Vista/img/volver.png">
+      <publishTime>05/09/2023 11:17:35</publishTime>
+    </File>
+    <File Include="Vista/includes/autoNumeric-min.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/autoNumeric.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/datetimepicker/build/css/bootstrap-datetimepicker.css">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/datetimepicker/build/js/bootstrap-datetimepicker.es.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/datetimepicker/build/js/bootstrap-datetimepicker.eu.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/datetimepicker/build/js/bootstrap-datetimepicker.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/datetimepicker/build/js/bootstrap-datetimepicker.min.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/css/fileinput.css">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/css/fileinput.min.css">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/img/loading-sm.gif">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/img/loading.gif">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/fileinput.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/fileinput.min.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/fileinput_locale_es.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/fileinput_locale_eu.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/fileinput_locale_LANG.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/plugins/canvas-to-blob.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/fileinput/js/plugins/canvas-to-blob.min.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/hazi.google.recaptcha.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/jq.energy.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/jquery-sortable.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/moment-es.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/moment-eu.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/moment-timezone-with-data.min.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/moment-with-locales.min.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/includes/moment.min.js">
+      <publishTime>05/09/2023 11:17:44</publishTime>
+    </File>
+    <File Include="Vista/includes/sessionMonitor.js">
+      <publishTime>05/09/2023 11:17:45</publishTime>
+    </File>
+    <File Include="Vista/index.aspx">
+      <publishTime>10/27/2023 09:32:48</publishTime>
+    </File>
+    <File Include="Vista/inicio.aspx">
+      <publishTime>02/01/2024 07:55:54</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/additional-methods.min.js">
+      <publishTime>05/09/2023 11:17:26</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta1/alta1.js">
+      <publishTime>11/23/2023 16:05:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta2/alta2.js">
+      <publishTime>05/09/2023 11:17:21</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta2_pastos/alta2_pastos.js">
+      <publishTime>04/01/2020 09:49:15</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta3/alta3.js">
+      <publishTime>05/09/2023 11:17:21</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta3_pastos/alta3_pastos.js">
+      <publishTime>04/01/2020 09:49:15</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/altas_entre_fechas/altas_entre_fechas.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta_fin/alta_fin.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/alta_fin_pastos/alta_fin_pastos.js">
+      <publishTime>04/01/2020 08:44:00</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/asociaciones/asociaciones.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/bajas_entre_fechas/bajas_entre_fechas.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/busqueda_crotal/busqueda_crotal.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/calificacion/calificacion.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/cambio/cambio.js">
+      <publishTime>05/09/2023 11:17:21</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/censo/censo.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/censo_fecha/censo_fecha.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/Common.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/confirmacion_de_guias/confirmacion_de_guias.js">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/confirma_guia_entrada/confirma_guia_entrada.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/consulta/consulta.js">
+      <publishTime>11/09/2023 15:50:18</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/crotales_disponibles/crotales_disponibles.js">
+      <publishTime>10/19/2017 14:17:18</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/datatables_language/Basque.json">
+      <publishTime>05/09/2023 11:17:26</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/datatables_language/Spanish.json">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/daterangepicker.css">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/datetime-moment.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/dispotivos.css">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/documentaciones/documentaciones.js">
+      <publishTime>11/11/2020 15:08:44</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/ica1/ica1.js">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/ica2/ica2.js">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/index/index.js">
+      <publishTime>10/17/2023 15:43:09</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/inicio/inicio.js">
+      <publishTime>02/01/2024 07:56:08</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/JQLibre.js">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/jquery-2.2.3.min.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/jquery.validate.min.js">
+      <publishTime>05/09/2023 11:17:26</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/listado_de_muertes/listado_de_muertes.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/listado_de_nacimientos/listado_de_nacimientos.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/listado_saneamientos/listado_saneamientos.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/login/login.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/moment.min.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/montesautorizados/montesautorizados.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/notificaciones/notificaciones.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/notificar_fecha_colocacion/notificar_fecha_colocacion.js">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/notificar_muerte/notificar_muerte.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/notificar_nacimiento/notificar_nacimiento.js">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/notificar_perdida_asignada/notificar_perdida_asignada.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/notificar_perdida_sin_asignar/notificar_perdida_sin_asignar.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/raphael-min.js">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/registro/registro.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/relacion_de_series/relacion_de_series.js">
+      <publishTime>05/09/2023 11:17:23</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/relacion_solicitudes/relacion_solicitudes.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/seguimiento_san_vac/seguimiento_san_vac.js">
+      <publishTime>05/09/2023 11:17:22</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/solicitud_crotales/solicitud_crotales.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/solicitud_permiso/solicitud_permiso.js">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/solicitud_permiso_denegada/solicitud_permiso_denegada.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/solicitud_permiso_en_tramite/solicitud_permiso_en_tramite.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/titulares/titulares.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/tramites/tramites.js">
+      <publishTime>05/09/2023 11:17:21</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/typeahead.bundle.js">
+      <publishTime>05/09/2023 11:17:25</publishTime>
+    </File>
+    <File Include="Vista/JS_CSS/validaciones.js">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/listado_de_nacimientos.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/listado_muertes.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/listado_saneamientos.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/login.aspx">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/montesautorizados.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/notificaciones.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/notificar_fecha_colocacion.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/notificar_muerte.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/notificar_nacimiento.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/notificar_perdida_asignada.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/notificar_perdida_sin_asignar.aspx">
+      <publishTime>05/09/2023 11:17:27</publishTime>
+    </File>
+    <File Include="Vista/registro.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/relacion_de_series.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/relacion_de_solicitudes.aspx">
+      <publishTime>05/09/2023 11:17:24</publishTime>
+    </File>
+    <File Include="Vista/seguimiento_san_vac.aspx">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/solicitud_crotales.aspx">
+      <publishTime>05/09/2023 11:17:29</publishTime>
+    </File>
+    <File Include="Vista/solicitud_permiso.aspx">
+      <publishTime>05/09/2023 11:17:29</publishTime>
+    </File>
+    <File Include="Vista/solicitud_permiso_denegada.aspx">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/solicitud_permiso_en_tramite.aspx">
+      <publishTime>05/09/2023 11:17:30</publishTime>
+    </File>
+    <File Include="Vista/titulares.aspx">
+      <publishTime>05/09/2023 11:17:29</publishTime>
+    </File>
+    <File Include="Vista/tramites.aspx">
+      <publishTime>05/09/2023 11:17:29</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,143 @@
+﻿
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+  background: transparent;
+}
+
+h1 {
+    background: #ddd;
+    margin: 0;
+    text-align: center;
+    padding: 13px 0 0 0px;
+    background-image: url(../img/fondo_cabecera.png);
+    background-repeat: repeat-x;
+    color: #FFF;
+    border-radius: 10px 10px 0 0;
+}
+
+h1 img {
+    max-width: 180px;
+    margin-bottom: 8px;
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 10px 45px 45px 45px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+    font-family: raleway;
+    text-transform: uppercase;
+    outline: 0;
+    background: #0CFF91;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    border-radius: 35px;
+}
+
+.form p {font-weight:bold;}
+
+.form button:hover,.form button:active,.form button:focus {
+  background: #000;
+  color:#FFF;
+}
+
+
+body {
+  background: #eee;
+  font-family: raleway;
+}
+
+#login_language{margin:20px 0 0 0; padding:0;}
+#login_language li {display:inline; list-style: none;padding: 0 10px;}
+#login_language li:first-child {border-right:1px solid #666; }
+#login_language li a {text-decoration:none; color:#999;}
+#login_language li a:hover{text-decoration:underline;}
+#login_language li a.activo {color:#000; font-weight:bold;}
+
+
+.login_error {
+    background: rgba(239, 165, 165, 0.83);
+    padding: 10px 14px 10px 50px;
+    border-radius: 6px;
+    text-align: left;
+    color: red;
+    border: 1px solid;
+    font-weight: normal;
+    position:relative;
+    display: none;
+}
+.login_error::before {
+    content: "+";
+    transform: rotate(46deg);
+    position: absolute;
+    left: 10px;
+    font-size: 62px;
+    font-weight: initial;
+    top: -11px;
+}
+
+/* mediaqueries */
+
+@media (max-width:400px){
+  .login-page {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+  }
+
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 8%;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+body {
+    background: #fff;
+    font-family: raleway;
+    padding: 0;
+    margin: 0;
+}
+
+h1{border-radius: 0;}
+
+.form p {
+
+    margin-bottom: 30px;
+}
+
+.form button{    margin-top: 30px;}
+
+}

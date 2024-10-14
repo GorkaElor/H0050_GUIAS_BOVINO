@@ -1,0 +1,44 @@
+/*botonera*/
+
+#botonera ul {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	
+}
+#divOcultar ul {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+	
+}
+#botonera  ul li{
+	margin-left:3px; 
+	padding:0px;
+	display:inline;  
+}
+#btnBuscar
+{
+    float:left;    
+}
+#arbDisminuir
+{
+    float:right;    
+}
+#divOcultar ul li{
+	margin-left:3px; 
+	padding:0px;
+	display:inline;  
+}
+.separador{
+	background: url(imgArbol/separador.jpg)  repeat-y left top;
+	height: 10px;
+	width:3px;
+	display:inline;
+}
+
+
+
+#linkArbAumentar{cursor:hand;display:none;_float:left;}
+#linkArbDisminuir{cursor:hand;display:inline;_float:right;margin-right:10px; }
+#btnBuscarTree{cursor:hand;_display:inline;float:left; }

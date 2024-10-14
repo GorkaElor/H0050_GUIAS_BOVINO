@@ -1,0 +1,95 @@
+﻿body {
+}
+/* Smartphones (portrait and landscape) -----------
+
+*/ @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+//    .aviso (display:block;) 
+    .aviso (display:none;) 
+   //{color:red !important;} //ejemplo para saber por dondes está pasando }
+ 
+/* Smartphones (landscape) ----------- 
+
+*/ @media only screen and (min-width : 321px) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* Smartphones (portrait) ----------- 
+
+*/ @media only screen and (max-width : 320px) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* iPads (portrait and landscape) ----------- 
+
+*/ @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* STYLES GO HERE */
+.aviso (display:none;)
+}
+ 
+/* iPhone 5 (portrait &amp; landscape)----------- 
+
+*/ @media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+/* STYLES GO HERE */
+aviso (display:none;)
+}
+ 
+/* iPhone 5 (landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+/* STYLES GO HERE */
+aviso (display:none;)
+}
+ 
+/* iPhone 5 (portrait)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : portrait) {
+ aviso (display:none;)
+/* STYLES GO HERE */
+}
+
+.aviso h1 {
+    display:none !important;
+} 
+
+.aviso h2 {
+    display:block !important;
+} 
+

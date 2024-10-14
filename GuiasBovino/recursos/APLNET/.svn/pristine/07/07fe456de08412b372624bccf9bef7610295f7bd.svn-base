@@ -1,0 +1,51 @@
+#popup_container {
+	font-family: Verdana;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #7DA42A;
+	border: solid 5px #7DA42A;
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_title {
+        background:url("../../css/IKT/images/ui-bg_inset-soft_75_7da42e_1x100.png") repeat-x scroll 50% 50% #7DA42E ;
+        border:1px solid #7DA42A;
+        color:#FFFFFF;
+        font-weight:bold;
+        margin-top:0px; 
+}
+
+#popup_content {
+	background: 16px 16px no-repeat url(images/info.gif) #F2F1F0;
+	padding: 1em ;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(images/info.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(images/important.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(images/help.gif);
+}
+
+#popup_message {
+	padding-left: 48px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
