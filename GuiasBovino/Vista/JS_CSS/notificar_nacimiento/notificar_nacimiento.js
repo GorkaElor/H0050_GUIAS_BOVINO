@@ -693,20 +693,22 @@ $(document).on("allLoaded", function () {
         if (valorInseminacion !== null && (valorInseminacion !== "" || valorInseminacion !== '')){
             $("#padre_crotal").val('');
             $("#padre_nombre").val('');
-            $("#tabla-padre").show();
+         
+            if ($("#padreTable").is(":visible")) { $("#padreTable").hide(); }
             $("#padre_crotal").prop("disabled", false);
             $("#padre_nombre").prop("disabled", false);
             $("#btnDeletePadre").prop("disabled", false);
         } else {
             $("#padre_crotal").val('');
             $("#padre_nombre").val('');
-            $("#tabla-padre").hide();
+            $("#padreTable").hide();
             $("#padre_crotal").prop("disabled", true);
             $("#padre_nombre").prop("disabled", true);
             $("#btnDeletePadre").prop("disabled", true);
         }
     });
 
+    
    
  
 })
