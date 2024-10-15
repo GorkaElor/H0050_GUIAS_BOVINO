@@ -1,7 +1,0 @@
-﻿
-$(document).on("allLoaded", function () {
-   
-    
-
-});
-

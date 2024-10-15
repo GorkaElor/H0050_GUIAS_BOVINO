@@ -693,12 +693,10 @@ $(document).on("allLoaded", function () {
         if (valorInseminacion !== null && (valorInseminacion !== "" || valorInseminacion !== '')){
             $("#padre_crotal").val('');
             $("#padre_nombre").val('');
-            //$("#tabla-padre").show();
+        
             if ($("#tabla-padre").is(":visible")) {
                 $("#tabla-padre").hide();  // Si la tabla está visible, se oculta
-            } else {
-                $("#tabla-padre").show();  // Si no está visible, se muestra
-            }
+            } 
 
             $("#padre_crotal").prop("disabled", false);
             $("#padre_nombre").prop("disabled", false);
